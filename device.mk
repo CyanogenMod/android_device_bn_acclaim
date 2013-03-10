@@ -114,7 +114,7 @@ PRODUCT_PACKAGES += \
 	libtf_crypto_sst
 
 PRODUCT_CHARACTERISTICS := tablet
-PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 PRODUCT_TAGS += dalvik.gc.type-precise
