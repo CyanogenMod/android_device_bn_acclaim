@@ -58,8 +58,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
 	$(DEVICE_FOLDER)/prebuilt/bin/log_battery_data.sh:/system/bin/log_battery_data.sh \
-	$(DEVICE_FOLDER)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
-	$(DEVICE_FOLDER)/prebuilt/bin/fix-serial-no.sh:/system/bin/fix-serial-no.sh
+	$(DEVICE_FOLDER)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh
 
 # permissions
 PRODUCT_COPY_FILES += \
