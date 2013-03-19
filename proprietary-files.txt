@@ -23,6 +23,7 @@
 #
 
 # misc
+xbin/setpropex
 bin/bbx
 
 # wifi
