@@ -1,0 +1,13 @@
+/dev/block/platform/omap/omap_hsmmc.1/by-name/system /system ext4 ro wait
+/dev/block/platform/omap/omap_hsmmc.1/by-name/cache /cache ext4 noatime,nosuid,nodev wait,check
+/dev/block/platform/omap/omap_hsmmc.1/by-name/userdata /data ext4 noatime,nosuid,nodev wait,check,encryptable=footer
+
+/dev/block/platform/omap/omap_hsmmc.1/by-name/rom /rom vfat noatime,nodiratime,uid=1000,gid=1000,fmask=117,dmask=007 wait
+/dev/block/platform/omap/omap_hsmmc.1/by-name/bootdata /bootdata vfat noatime,nodiratime,uid=1000,gid=1000,fmask=117,dmask=007 wait
+
+/dev/block/platform/omap/omap_hsmmc.1/by-name/boot /boot emmc defaults defaults
+/dev/block/platform/omap/omap_hsmmc.1/by-name/recovery /recovery   emmc defaults defaults
+/dev/block/platform/omap/omap_hsmmc.1/by-name/bootloader /bootloader emmc defaults defaults
+
+/devices/platform/omap/omap_hsmmc.1/mmc_host/mmc0 /storage/sdcard0 auto defaults voldmanaged=sdcard0:10,nonremovable
+/devices/platform/omap/omap_hsmmc.0/mmc_host/mmc1 /storage/sdcard1 auto defaults voldmanaged=sdcard1:auto
