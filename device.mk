@@ -117,6 +117,7 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072 \
+	ro.hwui.disable_scissor_opt=true \
 	ro.sf.lcd_density=160 \
 	wifi.interface=wlan0 \
 	wifi.supplicant_scan_interval=45 \
