@@ -73,6 +73,8 @@ BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../$(DEVICE_FOLDER)/recovery/recovery_ui.
 TARGET_RECOVERY_INITRC := $(DEVICE_FOLDER)/recovery/init.rc
 TARGET_RECOVERY_PRE_COMMAND := "echo 'recovery' > /bootdata/BCB; sync"
 BOARD_ALWAYS_INSECURE := true
+TARGET_RECOVERY_FSTAB = $(DEVICE_FOLDER)/root/fstab.acclaim
+RECOVERY_FSTAB_VERSION = 2
 
 # boot.img creation
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/boot.mk
