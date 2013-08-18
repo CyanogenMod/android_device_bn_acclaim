@@ -43,6 +43,10 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl\
 	$(DEVICE_FOLDER)/prebuilt/usr/idc/twl6030_pwrbutton.idc:system/usr/idc/twl6030_pwrbutton.idc \
 	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/twl6030_pwrbutton.kl:system/usr/keylayout/twl6030_pwrbutton.kl
+# location fix
+
+PRODUCT_COPY_FILES += \
+	$(DEVICE_FOLDER)/prebuilt/etc/gps.conf:/system/etc/gps.conf
 
 # wifi
 PRODUCT_PACKAGES += \
