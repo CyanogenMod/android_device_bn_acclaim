@@ -123,7 +123,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.supplicant_scan_interval=45 \
 	persist.sys.usb.config=mass_storage,adb \
 	ro.crypto.state=unencrypted \
-	persist.sys.root_access=3
+	persist.sys.root_access=3 \
+	ro.carrier=wifi-only
 
 $(call inherit-product-if-exists, vendor/bn/acclaim/acclaim-vendor.mk)
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
