@@ -33,7 +33,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_FOLDER)/bluetooth
 
 # kernel/boot
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_CMDLINE := androidboot.console=ttyO0 console=ttyO0,115200n8 def_disp=lcd2
+BOARD_KERNEL_CMDLINE := androidboot.console=ttyO0 console=ttyO0,115200n8 def_disp=lcd2 androidboot.selinux=permissive
 TARGET_BOOTLOADER_BOARD_NAME := acclaim
 
 # filesystem
@@ -44,7 +44,15 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 12949893120
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 # Connectivity - Wi-Fi
-USES_TI_MAC80211 := true
+#USES_TI_MAC80211 := true
+
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
+BOARD_WLAN_DEVICE := wl12xx_mac80211
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wl12xx_sdio.ko"
+WIFI_DRIVER_MODULE_NAME := "wl12xx_sdio"
+WIFI_FIRMWARE_LOADER := ""
+
 ifdef USES_TI_MAC80211
 WPA_SUPPLICANT_VERSION := VER_0_8_X_TI
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -56,7 +64,10 @@ WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wl12xx_sdio.ko"
 WIFI_DRIVER_MODULE_NAME := "wl12xx_sdio"
 WIFI_FIRMWARE_LOADER := ""
 COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
+else
+WPA_SUPPLICANT_VERSION := VER_0_8_X
 endif
+
 
 # Vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"

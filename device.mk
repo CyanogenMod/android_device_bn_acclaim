@@ -83,6 +83,7 @@ PRODUCT_PACKAGES += \
 	libjni_pinyinime \
 	libwvm \
 	TFF \
+	emmc \
 	sdcard \
 	com.android.future.usb.accessory \
 	Superuser \
