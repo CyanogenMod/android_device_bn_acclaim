@@ -63,8 +63,8 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/bin/fix-serial-no.sh:/system/bin/fix-serial-no.sh
 
 # permissions
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
+#PRODUCT_COPY_FILES += \
+#    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
 # hardware HALs
 PRODUCT_PACKAGES += \
