@@ -3,7 +3,7 @@ import init.acclaim.usb.rc
 
 on init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
-    mkdir /storage 0050 system sdcard_r
+    mkdir /storage 0775 system sdcard_r
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard0 0700 root root
@@ -79,15 +79,10 @@ on boot
     # (peformance settings will change this if set by user)
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1008000
 
-    # Give system ownership and permission to boost clock for specified timeout
-    # Note boost_timeout cannot be changed from application because of 
-    # dynamic sysfs creation. It will have default value of 3 sec.
-    chown system system /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
-    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
-
-    # Boost the CPU for 30 secs during boot
-    write /sys/devices/system/cpu/cpufreq/interactive/boost_timeout 30000000
-    write /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq 1
+       # cpufreq interactive governor: timer 20ms, min sample 20ms, hispeed 700MHz
+    write /sys/devices/system/cpu/cpufreq/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpufreq/interactive/min_sample_time 20000
+    write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 700000
 
     #WiFi
     setprop wifi.interface "wlan0"
@@ -109,6 +104,14 @@ on boot
 
     # SGX driver
     chmod 0666 /dev/pvrsrvkm
+
+    #Set kxtf9 permissions
+	chown system system /sys/bus/i2c/drivers/kxtf9/1-000f/delay
+	chown system system /sys/bus/i2c/drivers/kxtf9/1-000f/enable
+
+	#Set ft5x06 permissions
+	chown system system /sys/bus/i2c/drivers/ft5x06/2-0038/wmreg
+	chown system system /sys/bus/i2c/drivers/ft5x06/2-0038/wmval
 
     chown media media /dev/syslink-proc4430
     chown media media /dev/syslink-procmgr
@@ -133,26 +136,30 @@ on boot
     chmod 440 /dev/omap-devh0
     chmod 440 /dev/omap-devh1
     chmod 440 /dev/omap-devh2
-    
-    chown system system /sys/devices/virtual/input/input0/mode
-    chmod 0770 /sys/devices/virtual/input/input0/mode
-    chown system system /sys/devices/virtual/input/input0/delay
-    chmod 0770 /sys/devices/virtual/input/input0/delay
-    
-    # change permissions for Overlay
-    chown system system /dev/video1
-    chown system system /dev/video2
-    chown system system /dev/video3
-    
-    # change permissions for overlay managers and display devices
+
+   # change permissions for Overlay manager
+    chown system system /sys/devices/platform/omapdss/overlay2/manager
+    chown system system /sys/devices/platform/omapdss/overlay2/enabled
+    chown system system /sys/devices/platform/omapdss/overlay1/manager
+    chown system system /sys/devices/platform/omapdss/overlay1/enabled
+    chown system system /sys/devices/platform/omapdss/overlay0/manager
+    chown system system /sys/devices/platform/omapdss/overlay0/enabled
+
+    # change permissions for display devices
     chown system system /sys/devices/platform/omapdss/display0/enabled
-    chown system system /sys/devices/platform/omapdss/display1/enabled
-    chown system system /sys/devices/platform/omapdss/display2/enabled
-    chown system system /sys/devices/platform/omapdss/display3/enabled
     chown system system /sys/devices/platform/omapdss/display0/name
-    chown system system /sys/devices/platform/omapdss/display1/name
-    chown system system /sys/devices/platform/omapdss/display2/name
-    chown system system /sys/devices/platform/omapdss/display3/name
+    chown system system /sys/devices/platform/omapdss/display0/rotate
+    chown system system /sys/devices/platform/omapdss/display0/current_fps
+    chown system system /sys/devices/platform/omapdss/display0/fps
+    chown system system /sys/devices/platform/omapdss/display0/tear_elim
+    chown system system /sys/devices/platform/omapdss/display0/update_mode
+    chown system system /sys/devices/platform/omapdss/display0/timings
+
+    # change permissions for overlay managers
+    chown system system /sys/devices/platform/omapdss/overlay0/enabled
+    chown system system /sys/devices/platform/omapdss/overlay1/enabled
+    chown system system /sys/devices/platform/omapdss/overlay2/enabled
+    chown system system /sys/devices/platform/omapdss/overlay3/enabled
     chown system system /sys/devices/platform/omapdss/overlay0/manager
     chown system system /sys/devices/platform/omapdss/overlay1/manager
     chown system system /sys/devices/platform/omapdss/overlay2/manager
@@ -161,7 +168,7 @@ on boot
     chown system system /sys/devices/platform/omapdss/overlay1/zorder
     chown system system /sys/devices/platform/omapdss/overlay2/zorder
     chown system system /sys/devices/platform/omapdss/overlay3/zorder
-    
+
     # change permissions for manager tranparency parameters
     chown system system /sys/devices/platform/omapdss/manager0/name
     chown system system /sys/devices/platform/omapdss/manager0/display
@@ -169,17 +176,6 @@ on boot
     chown system system /sys/devices/platform/omapdss/manager1/display
     chown system system /sys/devices/platform/omapdss/manager2/name
     chown system system /sys/devices/platform/omapdss/manager2/display
-    chown system system /sys/devices/platform/omapdss/overlay0/enabled
-    chown system system /sys/devices/platform/omapdss/overlay1/enabled
-    chown system system /sys/devices/platform/omapdss/overlay2/enabled
-    chown system system /sys/devices/platform/omapdss/overlay3/enabled
-    
-    # change permissions for display timings to get the resolutions
-    chown system system /sys/devices/platform/omapdss/display0/timings
-    chown system system /sys/devices/platform/omapdss/display1/timings
-    chown system system /sys/devices/platform/omapdss/display2/timings
-    chown system system /sys/devices/platform/omapdss/display3/timings
-    chown system system /sys/devices/platform/omapdss/display2/code
 
     # change permissions for mtd device
     chmod 0660 /dev/mtd/mtd0
@@ -217,15 +213,17 @@ on boot
     chmod 0777 /dev/snd/pcmC0D5p
     chmod 0777 /dev/snd/timer
 
-    # Revert the boost_timeout to the default value of 3 sec. 
-    # Note this won't affect the prev boost request for boot time reduction
-    write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 3000000
-
 on property:dev.bootcomplete=1
     start bootcnt
 
 # Initialize the SGX driver
-service pvrsrvinit /vendor/bin/pvrsrvinit
+service pvrsrvinit /system/vendor/bin/pvrsrvinit
+    class core
+    user root
+    group root
+    oneshot
+
+service pvrsrvctl /system/vendor/bin/pvrsrvctl_SGX540_120 --start --no-module
     class core
     user root
     group root
@@ -265,7 +263,7 @@ service smc_pa /system/bin/smc_pa_ctrl \
 service p2p_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf -N \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
-    -O/data/misc/wifi/sockets -puse_p2p_group_interface=1  \
+    -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 \
     -g@android:wpa_wlan0
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
@@ -325,9 +323,11 @@ service hostapd_bin /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
 
 service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
     class late_start
+    disabled
 
 service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
+    disabled
 
 # Update the battery data heuristics every hour
 service logbatterydata /system/bin/log_battery_data.sh
@@ -335,11 +335,16 @@ service logbatterydata /system/bin/log_battery_data.sh
     user root
     group root
 
-# Restart adbd so it can run as root
+# Start adbd with root
 on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
-    restart adbd
+    write /sys/class/android_usb/android0/idVendor 18D1
+    write /sys/class/android_usb/android0/idProduct D001
+    write /sys/class/android_usb/android0/functions adb
     write /sys/class/android_usb/android0/enable 1
+    write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
+    write /sys/class/android_usb/android0/iProduct ${ro.product.model}
+    start adbd
     
 on property:sys.boot_completed=1
 
