@@ -53,7 +53,16 @@ PRODUCT_PACKAGES += \
 	calibrator \
 	crda \
 	regulatory.bin \
-	lib_driver_cmd_wl12xx 
+	lib_driver_cmd_wl12xx \
+	127x_TQS_S_2.6.ini \
+	wl1271-nvs_127x.bin \
+	wl127x-fw-4-mr.bin \
+	wl127x-fw-4-plt.bin \
+	wl127x-fw-4-sr.bin
+
+# wifi direct permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
 # scripts to clear boot counter and update the battery log info
 PRODUCT_COPY_FILES += \
@@ -61,10 +70,6 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/bin/log_battery_data.sh:/system/bin/log_battery_data.sh \
 	$(DEVICE_FOLDER)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
 	$(DEVICE_FOLDER)/prebuilt/bin/fix-serial-no.sh:/system/bin/fix-serial-no.sh
-
-# permissions
-#PRODUCT_COPY_FILES += \
-#    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
 # hardware HALs
 PRODUCT_PACKAGES += \

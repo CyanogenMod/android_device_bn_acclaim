@@ -26,14 +26,6 @@
 xbin/setpropex
 bin/bbx
 
-# wifi
-etc/firmware/ti-connectivity/LICENSE
-etc/firmware/ti-connectivity/wl1271-nvs_127x.bin
-etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin
-etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin
-etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin
-etc/wifi/TQS_S_2.6.ini
-
 # touch
 etc/firmware/touch/ft5406_sc3052_1024x768.bin
 etc/firmware/touch/fts0019u700_ver13_app.bin
