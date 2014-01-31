@@ -1,6 +1,5 @@
 import init.acclaim.usb.rc
 
-
 on init
     mount debugfs /sys/kernel/debug /sys/kernel/debug
     mkdir /storage 0050 system sdcard_r
@@ -35,6 +34,9 @@ on init
 on fs
     # mount partitions
     mount_all fstab.acclaim
+    # Load SGX Modules
+    insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
+    start pvrsrvinit
 
 on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
@@ -98,9 +100,6 @@ on boot
 
     # Fix serial number
     exec /system/bin/fix-serial-no.sh
-
-    # Load SGX Modules
-    insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
 
     # SGX driver
     chmod 0666 /dev/pvrsrvkm
@@ -207,6 +206,7 @@ service pvrsrvinit /vendor/bin/pvrsrvinit
     user root
     group root
     oneshot
+    disabled
 
 service bootcnt /system/bin/clear_bootcnt.sh
     class core
