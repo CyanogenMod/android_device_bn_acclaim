@@ -1,8 +1,6 @@
 import init.acclaim.usb.rc
 
-
 on init
-    mount debugfs /sys/kernel/debug /sys/kernel/debug
     mkdir /storage 0050 system sdcard_r
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
@@ -11,7 +9,7 @@ on init
     mkdir /storage/usbdisk0 0700 root root
     mkdir /cache 0771 system cache
 
-# for backwards compatibility
+    # for backwards compatibility
     symlink /storage/sdcard1 /mnt/emmc
     symlink /storage/sdcard1 /emmc
     symlink /storage/sdcard0 /sdcard
@@ -21,15 +19,15 @@ on init
     export EXTERNAL_STORAGE /storage/sdcard0
     export SECONDARY_STORAGE /storage/sdcard1
 
-# for acclaim
+    # for acclaim
     mkdir /rom 0777 root root
     mkdir /bootdata 0777 root root
 
-# power management
-# Enable off mode by default
+    # power management
+    # Enable off mode by default
     write /sys/kernel/debug/pm_debug/enable_off_mode 1
 
-# setup global environment
+    # setup global environment
     export PHONE_STORAGE /storage/sdcard1
     export DSP_PATH /system/lib/dsp
     export DEFAULT_BASEIMAGE /system/lib/dsp/baseimage.dof
@@ -38,13 +36,47 @@ on fs
     # mount partitions
     mount_all fstab.acclaim
 
+    # Load SGX Modules
+    insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
+    start pvrsrvinit
+
+    # change permissions for mtd device
+    chmod 0660 /dev/mtd/mtd0
+    chown media media /dev/mtd/mtd0
+
+    # change permissions for i2c-2 device
+    chmod 0660 /dev/i2c-2
+    chown media media /dev/i2c-2
+
+    # change permissions for Tiler driver
+    chown media media /dev/tiler
+    chmod 0666 /dev/tiler
+    chmod 0777 /dev/dmm
+
+    # change permissions for ION driver
+    chmod 0777 /dev/ion
+
+    # change permissions for rfkill
+    chmod 0777 /dev/rfkill
+
+on post-fs
+    #WiFi
+    setprop wifi.interface "wlan0"
+    setprop softap.interface "wlan0"
+        
+    insmod /system/lib/modules/compat.ko
+    insmod /system/lib/modules/cfg80211.ko
+    insmod /system/lib/modules/mac80211.ko
+    insmod /system/lib/modules/wl12xx.ko
+
 on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/media 0775 media_rw media_rw
     chown media_rw media_rw /data/media
     setprop vold.post_fs_data_done 1
 
-    # create dalvik-cache and double-check the perms, so as to enforce our permissions
+    # create dalvik-cache and double-check the perms, 
+    # so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 system system
     chown system system /data/dalvik-cache
     chmod 0771 /data/dalvik-cache
@@ -52,16 +84,7 @@ on post-fs-data
     mkdir /cache/dalvik-cache 0771 system system
     chown system system /cache/dalvik-cache
     chmod 0771 /cache/dalvik-cache
-                            
-on boot
-    setprop ro.radio.noril yes
-
-    # fake some battery state
-    setprop status.battery.state Slow
-    setprop status.battery.level 5
-    setprop status.battery.level_raw  50
-    setprop status.battery.level_scale 9
-
+ 
     # wireless
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -89,137 +112,27 @@ on boot
     write /sys/devices/system/cpu/cpufreq/interactive/boost_timeout 30000000
     write /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq 1
 
-    #WiFi
-    setprop wifi.interface "wlan0"
-    setprop softap.interface "wlan0"
-        
-    insmod /system/lib/modules/compat.ko
-    insmod /system/lib/modules/cfg80211.ko
-    insmod /system/lib/modules/mac80211.ko
-    insmod /system/lib/modules/wl12xx.ko
-
     # Fix wlan MAC addr
     exec /system/bin/fix-mac.sh
 
     # Fix serial number
     exec /system/bin/fix-serial-no.sh
 
-    # Load SGX Modules
-    insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
-
-    # SGX driver
-    chmod 0666 /dev/pvrsrvkm
-
-    chown media media /dev/syslink-proc4430
-    chown media media /dev/syslink-procmgr
-    chown media media /dev/syslink_ipc
-    chown media media /dev/omap-rproc0
-    chown media media /dev/omap-rproc1
-    chown media media /dev/omap-rproc2
-    chown media media /dev/iovmm-omap0
-    chown media media /dev/iovmm-omap1
-    chown media media /dev/omap-devh0
-    chown media media /dev/omap-devh1
-    chown media media /dev/omap-devh2
-
-    chmod 660 /dev/syslink-proc4430
-    chmod 660 /dev/syslink-procmgr
-    chmod 660 /dev/syslink_ipc
-    chmod 440 /dev/omap-rproc0
-    chmod 440 /dev/omap-rproc1
-    chmod 440 /dev/omap-rproc2
-    chmod 440 /dev/iovmm-omap0
-    chmod 440 /dev/iovmm-omap1
-    chmod 440 /dev/omap-devh0
-    chmod 440 /dev/omap-devh1
-    chmod 440 /dev/omap-devh2
-    
-    chown system system /sys/devices/virtual/input/input0/mode
-    chmod 0770 /sys/devices/virtual/input/input0/mode
-    chown system system /sys/devices/virtual/input/input0/delay
-    chmod 0770 /sys/devices/virtual/input/input0/delay
-    
-    # change permissions for Overlay
-    chown system system /dev/video1
-    chown system system /dev/video2
-    chown system system /dev/video3
-    
-    # change permissions for overlay managers and display devices
-    chown system system /sys/devices/platform/omapdss/display0/enabled
-    chown system system /sys/devices/platform/omapdss/display1/enabled
-    chown system system /sys/devices/platform/omapdss/display2/enabled
-    chown system system /sys/devices/platform/omapdss/display3/enabled
-    chown system system /sys/devices/platform/omapdss/display0/name
-    chown system system /sys/devices/platform/omapdss/display1/name
-    chown system system /sys/devices/platform/omapdss/display2/name
-    chown system system /sys/devices/platform/omapdss/display3/name
-    chown system system /sys/devices/platform/omapdss/overlay0/manager
-    chown system system /sys/devices/platform/omapdss/overlay1/manager
-    chown system system /sys/devices/platform/omapdss/overlay2/manager
-    chown system system /sys/devices/platform/omapdss/overlay3/manager
-    chown system system /sys/devices/platform/omapdss/overlay0/zorder
-    chown system system /sys/devices/platform/omapdss/overlay1/zorder
-    chown system system /sys/devices/platform/omapdss/overlay2/zorder
-    chown system system /sys/devices/platform/omapdss/overlay3/zorder
-    
-    # change permissions for manager tranparency parameters
-    chown system system /sys/devices/platform/omapdss/manager0/name
-    chown system system /sys/devices/platform/omapdss/manager0/display
-    chown system system /sys/devices/platform/omapdss/manager1/name
-    chown system system /sys/devices/platform/omapdss/manager1/display
-    chown system system /sys/devices/platform/omapdss/manager2/name
-    chown system system /sys/devices/platform/omapdss/manager2/display
-    chown system system /sys/devices/platform/omapdss/overlay0/enabled
-    chown system system /sys/devices/platform/omapdss/overlay1/enabled
-    chown system system /sys/devices/platform/omapdss/overlay2/enabled
-    chown system system /sys/devices/platform/omapdss/overlay3/enabled
-    
-    # change permissions for display timings to get the resolutions
-    chown system system /sys/devices/platform/omapdss/display0/timings
-    chown system system /sys/devices/platform/omapdss/display1/timings
-    chown system system /sys/devices/platform/omapdss/display2/timings
-    chown system system /sys/devices/platform/omapdss/display3/timings
-    chown system system /sys/devices/platform/omapdss/display2/code
-
-    # change permissions for mtd device
-    chmod 0660 /dev/mtd/mtd0
-    chown media media /dev/mtd/mtd0
-
-    # change permissions for i2c-2 device
-    chmod 0660 /dev/i2c-2
-    chown media media /dev/i2c-2
-
-    # change permissions for Tiler driver
-    chmod 0777 /dev/tiler
-    chmod 0777 /dev/dmm
-
-    # change permissions for ION driver
-    chmod 0777 /dev/ion
-
-    # change permissions for rfkill
-    chmod 0777 /dev/rfkill
-
-    # change permissions for Tiler driver
-    chown media media /dev/tiler
-    chmod 0666 /dev/tiler
-
-    # change permissions for alsa nodes
-    chmod 0777 /dev/snd/controlC0
-    chmod 0777 /dev/snd/pcmC0D0p
-    chmod 0777 /dev/snd/pcmC0D1c
-    chmod 0777 /dev/snd/pcmC0D1p
-    chmod 0777 /dev/snd/pcmC0D2c
-    chmod 0777 /dev/snd/pcmC0D3c
-    chmod 0777 /dev/snd/pcmC0D3p
-    chmod 0777 /dev/snd/pcmC0D4c
-    chmod 0777 /dev/snd/pcmC0D4p
-    chmod 0777 /dev/snd/pcmC0D5c
-    chmod 0777 /dev/snd/pcmC0D5p
-    chmod 0777 /dev/snd/timer
-
     # Revert the boost_timeout to the default value of 3 sec. 
     # Note this won't affect the prev boost request for boot time reduction
     write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 3000000
+                          
+on boot
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
+    # SGX driver
+    chmod 0666 /dev/pvrsrvkm
+    setprop ro.radio.noril yes
+
+    # fake some battery state
+    setprop status.battery.state Slow
+    setprop status.battery.level 5
+    setprop status.battery.level_raw  50
+    setprop status.battery.level_scale 9
 
 on property:dev.bootcomplete=1
     start bootcnt
@@ -230,6 +143,7 @@ service pvrsrvinit /vendor/bin/pvrsrvinit
     user root
     group root
     oneshot
+    disabled 
 
 service bootcnt /system/bin/clear_bootcnt.sh
     class core
@@ -238,10 +152,7 @@ service bootcnt /system/bin/clear_bootcnt.sh
     disabled
     oneshot
 
-###################################################
 # MSHIELD SMC Daemon - component required to store persistent data coming
-#   from the SMC PA to the device persistent storage
-###################################################
 service tf_daemon /system/bin/tf_daemon \
     -d -c /vendor/etc/smc_normal_world_android_cfg.ini
     class main
@@ -250,9 +161,7 @@ service tf_daemon /system/bin/tf_daemon \
     oneshot
     disabled
 
-###################################################
 # MSHIELD SMC PA Control - installs the SMC PA into the Secure Environment
-###################################################
 service smc_pa /system/bin/smc_pa_ctrl \
     -c /vendor/etc/smc_normal_world_android_cfg.ini \
     start /vendor/firmware/smc_pa.ift
@@ -323,10 +232,12 @@ service hostapd_bin /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
     disabled
     oneshot
 
-service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+service fuse_sdcard0 /system/bin/sdcard \
+	-u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
     class late_start
 
-service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+service fuse_sdcard1 /system/bin/sdcard \
+	 -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
 
 # Update the battery data heuristics every hour
@@ -341,7 +252,5 @@ on property:service.adb.root=1
     restart adbd
     write /sys/class/android_usb/android0/enable 1
     
-on property:sys.boot_completed=1
-
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
