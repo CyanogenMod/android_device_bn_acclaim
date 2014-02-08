@@ -136,5 +136,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.sys.root_access=3 \
 	ro.carrier=wifi-only
 
-$(call inherit-product-if-exists, vendor/bn/acclaim/acclaim-vendor.mk)
+$(call inherit-product, vendor/bn/acclaim/acclaim-vendor.mk)
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
