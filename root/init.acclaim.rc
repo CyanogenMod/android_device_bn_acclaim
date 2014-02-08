@@ -10,10 +10,10 @@ on init
     mkdir /cache 0771 system cache
 
     # for backwards compatibility
-    symlink /storage/sdcard1 /mnt/emmc
-    symlink /storage/sdcard1 /emmc
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
+    symlink /storage/sdcard0 /mnt/emmc
+    symlink /storage/sdcard0 /emmc
+    symlink /storage/sdcard1 /sdcard
+    symlink /storage/sdcard1 /mnt/sdcard
 
     symlink /system/vendor /vendor
     export EXTERNAL_STORAGE /storage/sdcard0
@@ -28,7 +28,7 @@ on init
     write /sys/kernel/debug/pm_debug/enable_off_mode 1
 
     # setup global environment
-    export PHONE_STORAGE /storage/sdcard1
+    export PHONE_STORAGE /storage/sdcard0
     export DSP_PATH /system/lib/dsp
     export DEFAULT_BASEIMAGE /system/lib/dsp/baseimage.dof
 
