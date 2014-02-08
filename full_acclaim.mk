@@ -28,8 +28,8 @@ PRODUCT_PACKAGES += \
 $(call inherit-product, device/bn/acclaim/device.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
-# Discard inherited values and use our own instead.
 PRODUCT_NAME := full_acclaim
 PRODUCT_DEVICE := acclaim
-PRODUCT_BRAND := BN
-PRODUCT_MODEL := Barnes and Noble Nook Tablet
+PRODUCT_BRAND := google
+PRODUCT_MODEL := B&N NookTablet
+PRODUCT_MANUFACTURER := android
