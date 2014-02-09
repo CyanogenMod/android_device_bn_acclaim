@@ -35,6 +35,7 @@ on init
 on fs
     # mount partitions
     mount_all fstab.acclaim
+    swapon_all fstab.acclaim
 
     # Load SGX Modules
     insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
