@@ -99,6 +99,10 @@ PRODUCT_PACKAGES += \
 	tinymix \
 	tinycap
 
+# Enable KSM by default
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ksm.default=1
+
 # TI OMAP4
 PRODUCT_PACKAGES += \
 	libdomx \
