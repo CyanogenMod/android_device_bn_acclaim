@@ -54,11 +54,7 @@ PRODUCT_PACKAGES += \
 	crda \
 	regulatory.bin \
 	lib_driver_cmd_wl12xx \
-	127x_TQS_S_2.6.ini \
-	wl1271-nvs_127x.bin \
-	wl127x-fw-4-mr.bin \
-	wl127x-fw-4-plt.bin \
-	wl127x-fw-4-sr.bin
+	127x_TQS_S_2.6.ini
 
 # wifi direct permissions
 PRODUCT_COPY_FILES += \
@@ -126,15 +122,16 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.opengles.version=131072 \
+	persist.sys.root_access=3 \
+	persist.sys.usb.config=mass_storage,adb \
+	ro.carrier=wifi-only \
+	ro.crypto.state=unencrypted \
 	ro.hwui.disable_scissor_opt=true \
+	ro.opengles.version=131072 \
 	ro.sf.lcd_density=160 \
 	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=45 \
-	persist.sys.usb.config=mass_storage,adb \
-	ro.crypto.state=unencrypted \
-	persist.sys.root_access=3 \
-	ro.carrier=wifi-only
+	wifi.supplicant_scan_interval=45
 
 $(call inherit-product, vendor/bn/acclaim/acclaim-vendor.mk)
 $(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+$(call inherit-product, hardware/ti/wlan/mac80211/wl127x-wlan-products.mk)
