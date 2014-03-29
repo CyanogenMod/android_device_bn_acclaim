@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Actualizador de firmware</string>
+  <string name="app_name">Anovador de firmware de la pantalla táctil</string>
   <string name="current_firmware">Firmware actual: </string>
-  <string name="detecting">Detectando\u2026</string>
-  <string name="you_can_flash">Puedes instalar: </string>
-  <string name="i_understand">Entiendo perfectamente las consecuencias de esta acción</string>
-  <string name="help">Levantar el dedo para instalar. Mover fuera para descartar.</string>
+  <string name="detecting">Deteutando\u2026</string>
+  <string name="you_can_flash">Pues flashear: </string>
+  <string name="i_understand">Atalanto perfeutamente les consecuencies d\'esta aición</string>
+  <string name="help">Llevantar el deu pa instalar. Mover fuera pa descartar.</string>
 </resources>

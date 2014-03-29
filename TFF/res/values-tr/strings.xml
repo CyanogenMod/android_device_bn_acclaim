@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Actualizador de firmware</string>
-  <string name="current_firmware">Firmware actual: </string>
-  <string name="detecting">Detectando\u2026</string>
-  <string name="you_can_flash">Puedes instalar: </string>
-  <string name="i_understand">Entiendo perfectamente las consecuencias de esta acción</string>
-  <string name="help">Levantar el dedo para instalar. Mover fuera para descartar.</string>
+  <string name="app_name">Dokunmatik ekran iç yazılım yükleyici</string>
+  <string name="current_firmware">Güncel iç yazılım:</string>
+  <string name="detecting">Tespit ediliyor\u2026</string>
+  <string name="you_can_flash">Yükleyebilirsiniz:</string>
+  <string name="i_understand">Bu işlemin sonuçlarını tamamen anlıyorum</string>
+  <string name="help">Yüklemek için parmağınızı kaldırın. İptal etmek için yukarı kaydırın.</string>
 </resources>
