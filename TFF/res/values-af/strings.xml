@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Actualizador de firmware</string>
-  <string name="current_firmware">Firmware actual: </string>
-  <string name="detecting">Detectando\u2026</string>
-  <string name="you_can_flash">Puedes instalar: </string>
-  <string name="i_understand">Entiendo perfectamente las consecuencias de esta acción</string>
-  <string name="help">Levantar el dedo para instalar. Mover fuera para descartar.</string>
+  <string name="app_name">Raakskerm firmware installeerder</string>
+  <string name="current_firmware">Huidige firmware: </string>
+  <string name="detecting">Opsporing\u2026</string>
+  <string name="you_can_flash">Jy kan installeer: </string>
+  <string name="i_understand">Ek verstaan ​​die gevolge van hierdie aksie</string>
+  <string name="help">Los vinger om te installeer. Skuif om te verwerp.</string>
 </resources>
