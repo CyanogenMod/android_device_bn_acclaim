@@ -18,8 +18,8 @@
 <resources>
   <string name="app_name">Flasher firmvéru pre dotykovú obrazovku</string>
   <string name="current_firmware">Aktuálny firmvér: </string>
-  <string name="detecting">Detegovanie\u2026</string>
-  <string name="you_can_flash">Môžete flashnuť:</string>
+  <string name="detecting">Detekovanie\u2026</string>
+  <string name="you_can_flash">Môžete flashnúť:</string>
   <string name="i_understand">Uvedomujem si dôsledky tejto akcie</string>
   <string name="help">Uvoľnite prst pre flashnutie. Presuňte prst inde pre zahodenie.</string>
 </resources>

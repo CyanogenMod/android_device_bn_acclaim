@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Přehrání firmware dotykové obrazovky</string>
-  <string name="current_firmware">Aktuální firmware:</string>
-  <string name="detecting">Detekování\u2026</string>
-  <string name="you_can_flash">Je možné přehrát:</string>
-  <string name="i_understand">Plně si uvědomují důsledky této akce</string>
-  <string name="help">Uvolněním prstu přehrát. Přejetím přes zahodit.</string>
+  <string name="app_name">Opdatering af firmware til touchskærm</string>
+  <string name="current_firmware">Aktuel firmware: </string>
+  <string name="detecting">Søger\u2026</string>
+  <string name="you_can_flash">Du kan installere: </string>
+  <string name="i_understand">Jeg forstår denne handlings konsekvenser fuldstændigt</string>
+  <string name="help">Slip fingeren for at opdatere. Træk over for at annullere.</string>
 </resources>

@@ -16,10 +16,9 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Přehrání firmware dotykové obrazovky</string>
-  <string name="current_firmware">Aktuální firmware:</string>
-  <string name="detecting">Detekování\u2026</string>
-  <string name="you_can_flash">Je možné přehrát:</string>
-  <string name="i_understand">Plně si uvědomují důsledky této akce</string>
-  <string name="help">Uvolněním prstu přehrát. Přejetím přes zahodit.</string>
+  <string name="current_firmware">גרסה נוכחית: </string>
+  <string name="detecting">מאתר\u2026</string>
+  <string name="you_can_flash">אתה יכול לצרוב: </string>
+  <string name="i_understand">אני מבין לחלוטין את ההשלכות של פעולה זו</string>
+  <string name="help">שחרר אצבע כדי לצרוב. העבר כדי לבטל.</string>
 </resources>
