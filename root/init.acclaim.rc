@@ -40,6 +40,14 @@ on fs
     insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
     start pvrsrvinit
 
+    #Set kxtf9 permissions
+    chown system system /sys/bus/i2c/drivers/kxtf9/1-000f/delay
+    chown system system /sys/bus/i2c/drivers/kxtf9/1-000f/enable
+
+    #Set ft5x06 permissions
+    chown system system /sys/bus/i2c/drivers/ft5x06/2-0038/wmreg
+    chown system system /sys/bus/i2c/drivers/ft5x06/2-0038/wmval
+
     # change permissions for mtd device
     chmod 0660 /dev/mtd/mtd0
     chown media media /dev/mtd/mtd0
