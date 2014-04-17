@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">צורב תוכנת מסך מגע</string>
-  <string name="current_firmware">גרסה נוכחית: </string>
-  <string name="detecting">מאתר\u2026</string>
-  <string name="you_can_flash">אתה יכול לצרוב: </string>
-  <string name="i_understand">אני מבין לחלוטין את ההשלכות של פעולה זו</string>
-  <string name="help">שחרר אצבע כדי לצרוב. העבר כדי לבטל.</string>
+  <string name="app_name">Instalare firmware ecran tactil</string>
+  <string name="current_firmware">Firmware curent: </string>
+  <string name="detecting">Detectare\u2026</string>
+  <string name="you_can_flash">Se poate instala: </string>
+  <string name="i_understand">Înțeleg pe deplin consecințele acestei acțiuni</string>
+  <string name="help">Ridică degetul pentru a instala. Mută peste pentru a anula.</string>
 </resources>
