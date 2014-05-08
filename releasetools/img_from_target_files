@@ -24,8 +24,7 @@ RELEASETOOLS_DIR = os.path.abspath \
 def GetBootableImage(name, prebuilt_name, unpack_dir, tree_subdir,
                      info_dict = None):
     new_name =  os.path.abspath \
-        (os.path.join(LOCAL_DIR, 
-                      '../../../out/target/product/acclaim/%s') % name)
+        (os.path.join(os.environ.get('ANDROID_PRODUCT_OUT'), name))
 
     print "For acclaim we keep %s as %s" % (name, new_name)
     return File.FromLocalFile(name, new_name)
