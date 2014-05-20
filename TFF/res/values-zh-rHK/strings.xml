@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Installateur de firmware par l\'écran tactile</string>
-  <string name="current_firmware">Firmware actuel : </string>
-  <string name="detecting">Détection\u2026</string>
-  <string name="you_can_flash">Vous pouvez mettre à jour : </string>
-  <string name="i_understand">J\'ai pleinement compris les conséquences de cette action</string>
-  <string name="help">Relâchez le doigt pour mettre à jour. Déplacer en dehors pour annuler.</string>
+  <string name="app_name">輕觸式螢幕韌體刷入器</string>
+  <string name="current_firmware">目前韌體：</string>
+  <string name="detecting">正在偵測\u2026</string>
+  <string name="you_can_flash">你可以刷入：</string>
+  <string name="i_understand">我完全了解此操作帶來的後果</string>
+  <string name="help">鬆開手指以開始刷入，移開以放棄。</string>
 </resources>

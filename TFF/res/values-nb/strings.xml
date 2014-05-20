@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Installateur de firmware par l\'écran tactile</string>
-  <string name="current_firmware">Firmware actuel : </string>
-  <string name="detecting">Détection\u2026</string>
-  <string name="you_can_flash">Vous pouvez mettre à jour : </string>
-  <string name="i_understand">J\'ai pleinement compris les conséquences de cette action</string>
-  <string name="help">Relâchez le doigt pour mettre à jour. Déplacer en dehors pour annuler.</string>
+  <string name="app_name">Firmwareflasher for Touchskjerm</string>
+  <string name="current_firmware">Gjeldende fastvare: </string>
+  <string name="detecting">Detekterer\u2026</string>
+  <string name="you_can_flash">Du kan flashe: </string>
+  <string name="i_understand">Jeg forstår konsekvensene av denne handlingen</string>
+  <string name="help">Slipp fingeren for å flashe. Sweip over for å avbryte.</string>
 </resources>
