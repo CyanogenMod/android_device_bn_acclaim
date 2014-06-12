@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Touchscreen firmware флешер</string>
-  <string name="current_firmware">Тренутни firmware: </string>
-  <string name="detecting">Детектовање\u2026</string>
-  <string name="you_can_flash">Можеш да флешујеш: </string>
-  <string name="i_understand">У потпуности разумем последице ове акције</string>
-  <string name="help">Отпусти прст да флешујеш. Помери да одбациш.</string>
+  <string name="app_name">Puuteekraani püsivara installeerija</string>
+  <string name="current_firmware">Praegune püsivara: </string>
+  <string name="detecting">Otsin\u2026</string>
+  <string name="you_can_flash">Võib installeerida: </string>
+  <string name="i_understand">Ma mõistan selle toimingu tagajärgesid</string>
+  <string name="help">Vabasta sõrm et installeerida. Liiguta üle et katkestada.</string>
 </resources>
