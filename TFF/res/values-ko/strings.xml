@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Sensorlu ekranın mikroproqramların yazıçı</string>
-  <string name="current_firmware">Indiki mikroproqramlar: </string>
-  <string name="detecting">Müəyyəndirirəm\u2026</string>
-  <string name="you_can_flash">Yazmağa başlaya bilərsiniz: </string>
-  <string name="i_understand">Mən tamamiylə bu hərəkətin nəticələrini başadüşürəm</string>
-  <string name="help">Yazdırmağ üçün barmağıvızı buraxın. Silmek üçün üzərində hərəkət edin.</string>
+  <string name="app_name">터치스크린 펌웨어 플래셔</string>
+  <string name="current_firmware">현재 펌웨어: </string>
+  <string name="detecting">감지 중\u2026</string>
+  <string name="you_can_flash">당신은 설치 할 수 있습니다:</string>
+  <string name="i_understand">이 작업의 영향을 완전히 이해했습니다</string>
+  <string name="help">손가락을 떼면 플래시합니다. 손가락을 바깥쪽으로 옮기면 취소합니다.</string>
 </resources>
