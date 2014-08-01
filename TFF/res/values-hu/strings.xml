@@ -18,7 +18,7 @@
 <resources>
   <string name="app_name">Érintőképernyő firmware frissítő</string>
   <string name="current_firmware">Jelenlegi firmware: </string>
-  <string name="detecting">Ellenőrzés</string>
+  <string name="detecting">Ellenőrzés\u2026</string>
   <string name="you_can_flash">A következő frissíthető: </string>
   <string name="i_understand">Megértettem a művelet következményeit</string>
   <string name="help">Engedje el az ujját a frissítéshez, vigye odébb a megszakításhoz.</string>
