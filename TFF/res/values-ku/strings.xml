@@ -17,9 +17,9 @@
 -->
 <resources>
   <string name="app_name">سوینی ڕوونماکه‌ بۆ فلاشه‌ری سیسته‌مه‌که‌</string>
-  <string name="current_firmware">وه‌شانی ئێستا:</string>
+  <string name="current_firmware">پتەوواڵەی ئێستا:</string>
   <string name="detecting">خراپبوونی\u2026</string>
-  <string name="you_can_flash">ئه‌توانی فلاشی لێده‌یت</string>
-  <string name="i_understand">من هه‌موو ڕێگه‌کانی ئه‌م چالاکیه‌ ئه‌زانم</string>
-  <string name="help">په‌نجه‌ت لاده‌ بۆ فلاشکردن.بجوڵێ بۆ سه‌ری</string>
+  <string name="you_can_flash">ئه‌توانی فلاشی لێبدەیت</string>
+  <string name="i_understand">من هه‌موو ئاکامەکانی ئه‌م کاره‌ ده‌زانم</string>
+  <string name="help">په‌نجه‌ت لاده‌ بۆ فلاشکردن.بجوڵێ بۆ سه‌رێ بۆ لابردن</string>
 </resources>

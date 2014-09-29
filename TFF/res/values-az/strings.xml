@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Sensorlu ekranın mikroproqramların yazıçı</string>
-  <string name="current_firmware">Indiki mikroproqramlar: </string>
-  <string name="detecting">Müəyyəndirirəm\u2026</string>
-  <string name="you_can_flash">Yazmağa başlaya bilərsiniz: </string>
-  <string name="i_understand">Mən tamamiylə bu hərəkətin nəticələrini başadüşürəm</string>
-  <string name="help">Yazdırmağ üçün barmağıvızı buraxın. Silmek üçün üzərində hərəkət edin.</string>
+  <string name="app_name">Sensorlu ekrana mikroproqram yükləmə</string>
+  <string name="current_firmware">Hazırki mikroproqramlar: </string>
+  <string name="detecting">Aşkarlanır\u2026</string>
+  <string name="you_can_flash">Yükləyə bilərsiniz: </string>
+  <string name="i_understand">Bu hərəkətin nəticələrini tamamilə başa düşürəm</string>
+  <string name="help">Yükləmək üçün barmağınızı buraxın. Ləğvi üçün yuxarı sürüşdürün.</string>
 </resources>
