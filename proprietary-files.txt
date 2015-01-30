@@ -22,10 +22,6 @@
 #     directory for use in the build of other open source files.
 #
 
-# misc
-xbin/setpropex
-bin/bbx
-
 # touch
 etc/firmware/touch/ft5406_sc3052_1024x768.bin
 etc/firmware/touch/fts0019u700_ver13_app.bin

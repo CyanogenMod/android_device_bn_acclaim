@@ -27,5 +27,3 @@ PRODUCT_MODEL := Barnes & Noble Nook Tablet
 PRODUCT_RELEASE_NAME := NookTablet
 PRODUCT_BRAND := Android
 PRODUCT_MANUFACTURER := Barnes & Noble
-
-

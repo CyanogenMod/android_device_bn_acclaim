@@ -1,0 +1,7 @@
+on init
+   mkdir /bootdata  0777 root root
+
+service clearbootdata /sbin/sh /sbin/clearbootdata.sh
+    class default
+    user root
+    oneshot

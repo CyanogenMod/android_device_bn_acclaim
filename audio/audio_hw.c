@@ -2931,7 +2931,10 @@ static int adev_open_input_stream(struct audio_hw_device *dev,
                                   audio_io_handle_t handle,
                                   audio_devices_t devices,
                                   struct audio_config *config,
-                                  struct audio_stream_in **stream_in)
+                                  struct audio_stream_in **stream_in,
+				  audio_input_flags_t flags,
+				  const char *address,
+				  audio_source_t source)
 {
     struct omap_audio_device *ladev = (struct omap_audio_device *)dev;
     struct omap_stream_in *in;
@@ -3067,7 +3070,7 @@ static int adev_open(const hw_module_t* module, const char* name,
     }
 
     adev->hw_device.common.tag = HARDWARE_DEVICE_TAG;
-    adev->hw_device.common.version = AUDIO_DEVICE_API_VERSION_CURRENT;
+    adev->hw_device.common.version = AUDIO_DEVICE_API_VERSION_2_0;
     adev->hw_device.common.module = (struct hw_module_t *) module;
     adev->hw_device.common.close = adev_close;
 

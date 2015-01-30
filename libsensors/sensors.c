@@ -31,11 +31,18 @@
  */
 
 static const struct sensor_t sSensorList[] = {
-         { "Kionix KXTF9 3-axis Accelerometer",
-                "Kionix",
-				1, SENSORS_HANDLE_BASE+ID_A,
-				SENSOR_TYPE_ACCELEROMETER, (GRAVITY_EARTH * 2.0f),
-				(GRAVITY_EARTH) / 1024.0f, 0.7f, 10000, 0,0, { } },
+	{
+		.name = "Kionix KXTF9 3-axis Accelerometer",
+		.vendor = "Kionix",
+		.version = 1,
+		.handle = SENSORS_HANDLE_BASE + ID_A,
+		.type = SENSOR_TYPE_ACCELEROMETER,
+		.maxRange = GRAVITY_EARTH * 2.0f,
+		.resolution = GRAVITY_EARTH / 1024.0f,
+		.power = 0.7f,
+		.minDelay = 10000,
+		.reserved = { }
+	},
 };
 static int open_sensors(const struct hw_module_t* module, const char* name,
         struct hw_device_t** device);
@@ -57,7 +64,7 @@ struct sensors_module_t HAL_MODULE_INFO_SYM = {
         .version_major = 1,
         .version_minor = 0,
         .id = SENSORS_HARDWARE_MODULE_ID,
-        .name = "Barnes and Noble Encore Sensors Module",
+        .name = "Barnes and Noble Acclaim Sensors Module",
         .author = "Austen Dicken",
         .methods = &sensors_module_methods,
     },

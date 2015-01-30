@@ -22,6 +22,7 @@ DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay/aosp
 # rootfs
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/root/init.acclaim.rc:root/init.acclaim.rc \
+	$(DEVICE_FOLDER)/recovery/init.recovery.acclaim.rc:root/init.recovery.acclaim.rc \
 	$(DEVICE_FOLDER)/root/init.acclaim.usb.rc:root/init.acclaim.usb.rc \
 	$(DEVICE_FOLDER)/root/ueventd.acclaim.rc:root/ueventd.acclaim.rc \
 	$(DEVICE_FOLDER)/root/fstab.acclaim:root/fstab.acclaim
@@ -31,7 +32,9 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/etc/audio_policy.conf:/system/etc/audio_policy.conf \
 	$(DEVICE_FOLDER)/prebuilt/etc/media_codecs.xml:/system/etc/media_codecs.xml \
 	$(DEVICE_FOLDER)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-	$(DEVICE_FOLDER)/prebuilt/etc/mixer_paths.xml:/system/etc/mixer_paths.xml
+	frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
+	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
 
 # art
 PRODUCT_COPY_FILES += \
@@ -40,32 +43,33 @@ PRODUCT_COPY_FILES += \
 # input
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/usr/idc/ft5x06-i2c.idc:system/usr/idc/ft5x06-i2c.idc \
-	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl\
-	$(DEVICE_FOLDER)/prebuilt/usr/idc/twl6030_pwrbutton.idc:system/usr/idc/twl6030_pwrbutton.idc \
-	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/twl6030_pwrbutton.kl:system/usr/keylayout/twl6030_pwrbutton.kl
-# location fix
+	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
+# location fix
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/etc/gps.conf:/system/etc/gps.conf
 
 # wifi
 PRODUCT_PACKAGES += \
+	127x_TQS_S_2.6.ini \
 	calibrator \
 	crda \
-	regulatory.bin \
+	dhcpcd.conf \
+	hostapd \
+	hostapd.conf \
 	lib_driver_cmd_wl12xx \
-	127x_TQS_S_2.6.ini
+	regulatory.bin \
+	wpa_supplicant \
+	wpa_supplicant.conf
 
-# wifi direct permissions
 PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
+    $(LOCAL_PATH)/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
-# scripts to clear boot counter and update the battery log info
+# misc scripts
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/bin/clear_bootcnt.sh:/system/bin/clear_bootcnt.sh \
+	$(DEVICE_FOLDER)/prebuilt/bin/clearbootdata.sh:root/sbin/clearbootdata.sh \
 	$(DEVICE_FOLDER)/prebuilt/bin/log_battery_data.sh:/system/bin/log_battery_data.sh \
 	$(DEVICE_FOLDER)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
-	$(DEVICE_FOLDER)/prebuilt/bin/fix-serial-no.sh:/system/bin/fix-serial-no.sh
 
 # hardware HALs
 PRODUCT_PACKAGES += \
@@ -75,21 +79,10 @@ PRODUCT_PACKAGES += \
 	sensors.acclaim \
 	audio.primary.acclaim
 
-# recovery: script to reset boot cmds
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
-
 PRODUCT_PACKAGES += \
-	librs_jni \
 	libjni_pinyinime \
 	libwvm \
 	TFF \
-	emmc \
-	sdcard \
-	com.android.future.usb.accessory \
-	Superuser \
-	su \
-	make_ext4fs \
 	setup_fs \
 	tinyplay \
 	tinymix \
@@ -119,19 +112,13 @@ PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
-PRODUCT_TAGS += dalvik.gc.type-precise
-
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.sys.root_access=3 \
-	persist.sys.usb.config=mass_storage,adb \
+	omap.audio.mic.main=AMic0 \
+	omap.audio.mic.sub=AMic1 \
+	omap.audio.power=PingPong \
 	ro.carrier=wifi-only \
-	ro.crypto.state=unencrypted \
-	ro.hwui.disable_scissor_opt=true \
-	ro.opengles.version=131072 \
-	ro.sf.lcd_density=160 \
-	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=45
+	ro.sf.lcd_density=160
 
 $(call inherit-product, vendor/bn/acclaim/acclaim-vendor.mk)
-$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 $(call inherit-product, hardware/ti/wlan/mac80211/wl127x-wlan-products.mk)

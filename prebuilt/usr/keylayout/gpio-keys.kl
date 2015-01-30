@@ -13,8 +13,6 @@
 # limitations under the License.
 
 # gpio-keys.kl
-# This is the keylayout for the hardware buttons on the Nook Color.
+# This is the keylayout for the hardware buttons on the nook tablet (acclaim).
 
-key 102     HOME            WAKE
-key 114     VOLUME_DOWN
-key 115     VOLUME_UP
+key 102     HOME

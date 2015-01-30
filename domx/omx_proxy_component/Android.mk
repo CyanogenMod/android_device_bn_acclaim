@@ -12,6 +12,7 @@ LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/../domx \
 	$(LOCAL_PATH)/../domx/omx_rpc/inc \
 	hardware/libhardware/include \
+	frameworks/native/include/media/openmax \
 	$(COMMON_FOLDER)/hwc/
 
 LOCAL_SHARED_LIBRARIES := \
@@ -49,7 +50,8 @@ LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/../omx_core/inc \
 	$(LOCAL_PATH)/../mm_osal/inc \
 	$(LOCAL_PATH)/../domx \
-	$(LOCAL_PATH)/../domx/omx_rpc/inc
+	$(LOCAL_PATH)/../domx/omx_rpc/inc \
+	frameworks/native/include/media/openmax
 
 LOCAL_SHARED_LIBRARIES := \
 	libmm_osal \
@@ -79,7 +81,8 @@ LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/../mm_osal/inc \
 	$(LOCAL_PATH)/../domx \
 	$(COMMON_FOLDER)/include/ \
-	$(LOCAL_PATH)/../domx/omx_rpc/inc
+	$(LOCAL_PATH)/../domx/omx_rpc/inc \
+	frameworks/native/include/media/openmax \
 
 LOCAL_SHARED_LIBRARIES := \
 	libmm_osal \
@@ -113,6 +116,7 @@ LOCAL_C_INCLUDES += \
 	$(COMMON_FOLDER)/hwc \
 	$(HARDWARE_TI_OMAP4_BASE)/camera/inc \
 	frameworks/native/include/media/hardware \
+	frameworks/native/include/media/openmax \
 	$(COMMON_FOLDER)/include/camera \
 
 LOCAL_SHARED_LIBRARIES := \
@@ -149,6 +153,7 @@ LOCAL_C_INCLUDES += \
 	$(COMMON_FOLDER)/hwc \
 	$(HARDWARE_TI_OMAP4_BASE)/camera/inc \
 	frameworks/native/include/media/hardware \
+	frameworks/native/include/media/openmax \
 	$(COMMON_FOLDER)/include/camera \
 
 LOCAL_SHARED_LIBRARIES := \
@@ -182,6 +187,7 @@ LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/../domx \
 	$(LOCAL_PATH)/../domx/omx_rpc/inc \
 	hardware/libhardware/include \
+	frameworks/native/include/media/openmax \
 	$(COMMON_FOLDER)/hwc/
 
 LOCAL_SHARED_LIBRARIES := \
