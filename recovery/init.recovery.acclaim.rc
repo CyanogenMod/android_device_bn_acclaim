@@ -3,5 +3,6 @@ on init
 
 service clearbootdata /sbin/sh /sbin/clearbootdata.sh
     class default
+    seclabel u:r:clearbootdata:s0
     user root
     oneshot
