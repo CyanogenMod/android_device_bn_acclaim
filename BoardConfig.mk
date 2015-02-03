@@ -33,8 +33,10 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_FOLDER)/bluetooth
 
 # kernel/boot
 BOARD_KERNEL_PAGESIZE := 4096
-BOARD_KERNEL_CMDLINE := androidboot.console=ttyO0 console=ttyO0,115200n8 def_disp=lcd2 androidboot.selinux=permissive
 TARGET_BOOTLOADER_BOARD_NAME := acclaim
+
+# unused cmd line: kernel defconfig forces
+BOARD_KERNEL_CMDLINE := console=/dev/null
 
 # filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
