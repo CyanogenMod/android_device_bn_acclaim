@@ -151,7 +151,7 @@ service fixmac /system/bin/fix-mac.sh
 
 service clearbootdata /sbin/clearbootdata.sh
     class core
-    seclabel u:r:clearbootdata:s0
+    seclabel u:r:init:s0
     user root
     group root
     disabled

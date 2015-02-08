@@ -1,8 +1,14 @@
 on init
    mkdir /bootdata  0777 root root
 
+on fs
+   # mount bootdata to restore BCB and counter
+   mount vfat /dev/block/platform/omap/omap_hsmmc.1/by-name/bootdata /bootdata
+   # work-around: mount the external sd card to /sdcard so that cmupdater works
+   mount vfat /dev/block/mmcblk1p1 /sdcard/
+
 service clearbootdata /sbin/sh /sbin/clearbootdata.sh
     class default
-    seclabel u:r:clearbootdata:s0
+    seclabel u:r:init:s0
     user root
     oneshot
