@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Instaliranje Touchscreen verzije</string>
-  <string name="current_firmware">Trenutna verzija: </string>
-  <string name="detecting">Otkrivanje\u2026</string>
-  <string name="you_can_flash">Možete instalirati: </string>
-  <string name="i_understand">Potpuno razumijem posljedice ove akcije</string>
-  <string name="help">Pusti prst za instaliranje. Pomakni preko za odbacivanje.</string>
+  <string name="app_name">Atualizador de firmware do ecrã tátil</string>
+  <string name="current_firmware">Firmware atual: </string>
+  <string name="detecting">A detetar\u2026</string>
+  <string name="you_can_flash">Pode atualizar: </string>
+  <string name="i_understand">Compreendo perfeitamente as consequências desta ação</string>
+  <string name="help">Tirar o dedo para atualizar. Mover sobre para descartar.</string>
 </resources>

@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Installatör för pekskärmsmjukvara</string>
-  <string name="current_firmware">Nuvarande mjukvara: </string>
-  <string name="detecting">Upptäcker\u2026</string>
-  <string name="you_can_flash">Du kan installera: </string>
-  <string name="i_understand">Jag förstår följderna av denna åtgärd</string>
-  <string name="help">Lyft fingret för att installera. Flytta undan för att avbryta.</string>
+  <string name="app_name">Puuteekraani püsivara installeerija</string>
+  <string name="current_firmware">Praegune püsivara: </string>
+  <string name="detecting">Otsin\u2026</string>
+  <string name="you_can_flash">Võib installeerida: </string>
+  <string name="i_understand">Ma mõistan selle toimingu tagajärgesid</string>
+  <string name="help">Vabasta sõrm et installeerida. Liiguta üle et katkestada.</string>
 </resources>

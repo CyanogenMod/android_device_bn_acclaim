@@ -17,9 +17,9 @@
 -->
 <resources>
   <string name="app_name">Firmwareflasher fir den Touchschierm</string>
-  <string name="current_firmware">Aktuell Firmware:</string>
+  <string name="current_firmware">Aktuell Firmware: </string>
   <string name="detecting">Gëtt erkannt\u2026</string>
-  <string name="you_can_flash">Du kanns flashen:</string>
+  <string name="you_can_flash">Du kanns flashen: </string>
   <string name="i_understand">Ech versti voll a ganz d\'Konsequenze vun dëser Aktioun</string>
   <string name="help">Fanger lassloosse fir ze flashen. Eriwwerbeweege fir ze verwerfen.</string>
 </resources>
