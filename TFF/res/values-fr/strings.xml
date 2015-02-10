@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Installateur de firmware par l\'écran tactile</string>
+  <string name="app_name">Installeur de firmware pour l\'écran tactile</string>
   <string name="current_firmware">Firmware actuel : </string>
   <string name="detecting">Détection\u2026</string>
   <string name="you_can_flash">Vous pouvez mettre à jour : </string>

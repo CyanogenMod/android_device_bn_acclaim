@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">צורב תוכנת מסך מגע</string>
-  <string name="current_firmware">גרסה נוכחית: </string>
+  <string name="app_name">צורב קושחת מסך מגע</string>
+  <string name="current_firmware">גרסת קושחה נוכחית: </string>
   <string name="detecting">מאתר\u2026</string>
   <string name="you_can_flash">אתה יכול לצרוב: </string>
   <string name="i_understand">אני מבין לחלוטין את ההשלכות של פעולה זו</string>
-  <string name="help">שחרר אצבע כדי לצרוב. העבר כדי לבטל.</string>
+  <string name="help">שחרר אצבע כדי לצרוב. הסט הלאה כדי לבטל.</string>
 </resources>

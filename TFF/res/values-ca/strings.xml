@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Flasher de la firmware del ratolí tàctil</string>
+  <string name="app_name">Flasher de la firmware de la pantalla tàctil</string>
   <string name="current_firmware">Firmware actual: </string>
   <string name="detecting">Detectant\u2026</string>
   <string name="you_can_flash">Pots fer flash: </string>
