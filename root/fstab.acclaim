@@ -1,5 +1,9 @@
 /dev/block/platform/omap/omap_hsmmc.1/by-name/system /system ext4 ro wait
+
+/dev/block/platform/omap/omap_hsmmc.1/by-name/cache /cache f2fs noatime,nosuid,nodev,nodiratime,discard,inline_xattr,inline_data wait,check
 /dev/block/platform/omap/omap_hsmmc.1/by-name/cache /cache ext4 noatime,nosuid,nodev,nomblk_io_submit wait,check
+
+/dev/block/platform/omap/omap_hsmmc.1/by-name/userdata /data f2fs noatime,nosuid,nodev,nodiratime,discard,inline_xattr,inline_data wait,check,encryptable=footer,length=-16384
 /dev/block/platform/omap/omap_hsmmc.1/by-name/userdata /data ext4 noatime,nosuid,nodev,nomblk_io_submit wait,check,encryptable=footer,length=-16384
 
 /dev/block/platform/omap/omap_hsmmc.1/by-name/rom /rom vfat noatime,nodiratime,uid=1000,gid=1000,fmask=117,dmask=007 wait
