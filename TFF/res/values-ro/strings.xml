@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources>
+  <string name="app_name">Instalare firmware ecran tactil</string>
   <string name="current_firmware">Firmware curent: </string>
   <string name="detecting">Detectare\u2026</string>
   <string name="you_can_flash">Se poate instala: </string>
