@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">터치스크린 펌웨어 설치</string>
-  <string name="current_firmware">현재 펌웨어: </string>
-  <string name="detecting">감지 중\u2026</string>
-  <string name="you_can_flash">설치 가능: </string>
-  <string name="i_understand">이 작업의 영향을 모두 이해했습니다</string>
-  <string name="help">손가락을 떼면 플래시합니다. 손가락을 바깥쪽으로 옮기면 취소합니다.</string>
+  <string name="app_name">Atualizador de firmware do ecrã tátil</string>
+  <string name="current_firmware">Firmware atual: </string>
+  <string name="detecting">A detetar\u2026</string>
+  <string name="you_can_flash">Pode atualizar: </string>
+  <string name="i_understand">Compreendo perfeitamente as consequências desta ação</string>
+  <string name="help">Tirar o dedo para atualizar. Mover sobre para descartar.</string>
 </resources>
