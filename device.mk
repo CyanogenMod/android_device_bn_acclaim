@@ -13,19 +13,16 @@
 # limitations under the License.
 
 DEVICE_FOLDER := device/bn/acclaim
-COMMON_FOLDER := device/bn/omap4-common
-
-$(call inherit-product, $(COMMON_FOLDER)/common.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay/aosp
 
 # rootfs
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/root/init.acclaim.rc:root/init.acclaim.rc \
 	$(DEVICE_FOLDER)/recovery/init.recovery.acclaim.rc:root/init.recovery.acclaim.rc \
+	$(DEVICE_FOLDER)/root/fstab.acclaim:root/fstab.acclaim \
+	$(DEVICE_FOLDER)/root/init.acclaim.rc:root/init.acclaim.rc \
 	$(DEVICE_FOLDER)/root/init.acclaim.usb.rc:root/init.acclaim.usb.rc \
-	$(DEVICE_FOLDER)/root/ueventd.acclaim.rc:root/ueventd.acclaim.rc \
-	$(DEVICE_FOLDER)/root/fstab.acclaim:root/fstab.acclaim
+	$(DEVICE_FOLDER)/root/ueventd.acclaim.rc:root/ueventd.acclaim.rc
 
 # media
 PRODUCT_COPY_FILES += \
@@ -63,62 +60,91 @@ PRODUCT_PACKAGES += \
 	wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+	$(LOCAL_PATH)/prebuilt/etc/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 # misc scripts
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/bin/clearbootdata.sh:root/sbin/clearbootdata.sh \
-	$(DEVICE_FOLDER)/prebuilt/bin/log_battery_data.sh:/system/bin/log_battery_data.sh \
 	$(DEVICE_FOLDER)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
+	$(DEVICE_FOLDER)/prebuilt/bin/log_battery_data.sh:/system/bin/log_battery_data.sh
 
 # hardware HALs
 PRODUCT_PACKAGES += \
+	audio.primary.acclaim \
 	hwcomposer.acclaim \
 	lights.acclaim \
 	power.acclaim \
-	sensors.acclaim \
-	audio.primary.acclaim
+	sensors.acclaim
 
+# touchscreen firmware updater tool
 PRODUCT_PACKAGES += \
-	libjni_pinyinime \
-	libwvm \
-	TFF \
-	setup_fs \
-	tinyplay \
-	tinymix \
-	tinycap
-
-# TI OMAP4
-PRODUCT_PACKAGES += \
-	libdomx \
-	libOMX_Core \
-	libOMX.TI.DUCATI1.VIDEO.H264E \
-	libOMX.TI.DUCATI1.VIDEO.MPEG4E \
-	libOMX.TI.DUCATI1.VIDEO.DECODER \
-	libOMX.TI.DUCATI1.VIDEO.DECODER.secure \
-	libOMX.TI.DUCATI1.VIDEO.CAMERA \
-	libOMX.TI.DUCATI1.MISC.SAMPLE \
-	libstagefrighthw \
-	libI420colorconvert \
-	libtiutils \
-	libcamera \
-	libion_ti \
-	libomxcameraadapter \
-	smc_pa_ctrl \
-	tf_daemon \
-	libtf_crypto_sst
+	TFF
 
 PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_AAPT_CONFIG := normal mdpi hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 PRODUCT_PROPERTY_OVERRIDES += \
+	com.ti.omap_enhancement=true \
+	hwui.render_dirty_regions=false \
 	omap.audio.mic.main=AMic0 \
 	omap.audio.mic.sub=AMic1 \
 	omap.audio.power=PingPong \
+	omap.enhancement=true \
+	ro.bq.gpu_to_cpu_unsupported=1 \
 	ro.carrier=wifi-only \
-	ro.sf.lcd_density=160
+	ro.opengles.version=131072 \
+	ro.sf.lcd_density=160 \
+	wifi.interface=wlan0 \
+	wifi.supplicant_scan_interval=120
 
+# permissions
+PRODUCT_COPY_FILES += \
+	$(DEVICE_FOLDER)/basic_hardware.xml:/system/etc/permissions/basic_hardware.xml \
+	$(call add-to-product-copy-files-if-exists,packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml) \
+	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+
+DEVICE_PACKAGE_OVERLAYS := $(DEVICE_FOLDER)/overlay/aosp
+
+# filesystem management tools
+PRODUCT_PACKAGES += \
+	fsck.f2fs \
+	mkfs.f2fs \
+	setup_fs
+
+# audio support
+PRODUCT_PACKAGES += \
+	Music \
+	audio.a2dp.default \
+	audio.r_submix.default \
+	audio.usb.default \
+	audio_policy.default \
+	libaudioutils \
+	tinycap \
+	tinymix \
+	tinyplay
+
+# DRM
+PRODUCT_PACKAGES += \
+	libwvm
+
+# misc / testing
+PRODUCT_PACKAGES += \
+	evtest \
+	libjni_pinyinime \
+	sh \
+	strace
+
+# platform
+$(call inherit-product-if-exists, hardware/ti/omap4/omap4.mk)
+
+# blobs
 $(call inherit-product, vendor/bn/acclaim/acclaim-vendor.mk)
+
+# mem
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
+
+# wifi
 $(call inherit-product, hardware/ti/wlan/mac80211/wl127x-wlan-products.mk)

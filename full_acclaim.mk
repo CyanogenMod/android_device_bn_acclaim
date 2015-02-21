@@ -14,7 +14,7 @@
 
 # Camera and Gallery
 PRODUCT_PACKAGES += \
-        Gallery
+	Gallery
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \

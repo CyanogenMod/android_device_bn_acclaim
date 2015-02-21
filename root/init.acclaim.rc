@@ -19,7 +19,6 @@ on init
     export EXTERNAL_STORAGE /storage/sdcard0
     export SECONDARY_STORAGE /storage/sdcard1
 
-    # for acclaim
     mkdir /rom 0777 root root
     mkdir /bootdata 0777 root root
 
@@ -65,11 +64,12 @@ on fs
     # change permissions for rfkill
     chmod 0777 /dev/rfkill
 
-on post-fs      
+on post-fs
     insmod /system/lib/modules/compat.ko
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
     insmod /system/lib/modules/wl12xx.ko
+    insmod /system/lib/modules/wl12xx_sdio.ko
 
 on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
@@ -77,16 +77,16 @@ on post-fs-data
     chown media_rw media_rw /data/media
     setprop vold.post_fs_data_done 1
 
-    # create dalvik-cache and double-check the perms, 
+    # create dalvik-cache and double-check the perms,
     # so as to enforce our permissions
     mkdir /data/dalvik-cache 0771 system system
     chown system system /data/dalvik-cache
     chmod 0771 /data/dalvik-cache
-                
+
     mkdir /cache/dalvik-cache 0771 system system
     chown system system /cache/dalvik-cache
     chmod 0771 /cache/dalvik-cache
- 
+
     # wireless
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -101,7 +101,7 @@ on post-fs-data
     chown dhcp system /data/misc/dhcp
 
     # Give system ownership and permission to boost clock for specified timeout
-    # Note boost_timeout cannot be changed from application because of 
+    # Note boost_timeout cannot be changed from application because of
     # dynamic sysfs creation. It will have default value of 3 sec.
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/boost_cpufreq
@@ -113,10 +113,10 @@ on post-fs-data
     # Fix wlan MAC addr
     start fixmac
 
-    # Revert the boost_timeout to the default value of 3 sec. 
+    # Revert the boost_timeout to the default value of 3 sec.
     # Note this won't affect the prev boost request for boot time reduction
     write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 3000000
-                          
+
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
     # SGX driver
@@ -137,7 +137,7 @@ service pvrsrvinit /system/bin/pvrsrvinit
     user root
     group root
     oneshot
-    disabled 
+    disabled
 
 service fixmac /system/bin/fix-mac.sh
     class core

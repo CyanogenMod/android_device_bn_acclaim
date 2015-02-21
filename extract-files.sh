@@ -15,7 +15,3 @@ adb pull /system/$FILE $BASE/$FILE
 done
 
 ./setup-makefiles.sh
-
-# Call up to omap4-common
-cd ../omap4-common
-./extract-files.sh

@@ -72,5 +72,3 @@ LINEEND=""
     fi
 echo " $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
 done
-
-
