@@ -1,23 +1,26 @@
 import init.acclaim.usb.rc
 
 on init
-    mkdir /storage 0050 system sdcard_r
-    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /storage/sdcard0 0700 root root
-    mkdir /storage/sdcard1 0700 root root
-    mkdir /storage/usbdisk0 0700 root root
-    mkdir /cache 0771 system cache
+    # See storage config details at http://source.android.com/devices/tech/storage/index.html
+    mkdir /mnt/shell/emulated 0700 shell shell
+    mkdir /storage/emulated 0555 root root
 
-    # for backwards compatibility
-    symlink /storage/sdcard1 /mnt/emmc
-    symlink /storage/sdcard1 /emmc
-    symlink /storage/sdcard0 /sdcard
-    symlink /storage/sdcard0 /mnt/sdcard
+    export EXTERNAL_STORAGE /storage/emulated/legacy
+    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
+    export EMULATED_STORAGE_TARGET /storage/emulated
 
-    symlink /system/vendor /vendor
-    export EXTERNAL_STORAGE /storage/sdcard0
+    # Support legacy paths
+    symlink /storage/emulated/legacy /sdcard
+    symlink /storage/emulated/legacy /mnt/sdcard
+    symlink /storage/emulated/legacy /storage/sdcard0
+    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
+
+    # Enable secondary storage
     export SECONDARY_STORAGE /storage/sdcard1
+
+    # make the pathes for the external media mounts
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /storage/sdcard1 0700 root root
 
     mkdir /rom 0777 root root
     mkdir /bootdata 0777 root root
@@ -73,19 +76,8 @@ on post-fs
 
 on post-fs-data
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
-    mkdir /data/media 0775 media_rw media_rw
+    mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
-    setprop vold.post_fs_data_done 1
-
-    # create dalvik-cache and double-check the perms,
-    # so as to enforce our permissions
-    mkdir /data/dalvik-cache 0771 system system
-    chown system system /data/dalvik-cache
-    chmod 0771 /data/dalvik-cache
-
-    mkdir /cache/dalvik-cache 0771 system system
-    chown system system /cache/dalvik-cache
-    chmod 0771 /cache/dalvik-cache
 
     # wireless
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -116,6 +108,8 @@ on post-fs-data
     # Revert the boost_timeout to the default value of 3 sec.
     # Note this won't affect the prev boost request for boot time reduction
     write /sys/devices/system/cpu/cpufreq/hotplug/boost_timeout 3000000
+
+    setprop vold.post_fs_data_done 1
 
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
@@ -221,12 +215,13 @@ service hostapd_bin /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
     disabled
     oneshot
 
-service fuse_sdcard0 /system/bin/sdcard \
-	-u 1023 -g 1023 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+# virtual sdcard daemon running as media_rw (1023)
+service sdcard /system/bin/sdcard \
+	-u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
 
 service fuse_sdcard1 /system/bin/sdcard \
-	 -u 1023 -g 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+	-u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
 
 # Update the battery data heuristics every hour
