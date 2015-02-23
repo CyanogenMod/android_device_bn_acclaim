@@ -93,6 +93,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	omap.enhancement=true \
 	ro.bq.gpu_to_cpu_unsupported=1 \
 	ro.carrier=wifi-only \
+	ro.emulated_storage=true \
 	ro.opengles.version=131072 \
 	ro.sf.lcd_density=160 \
 	wifi.interface=wlan0 \
