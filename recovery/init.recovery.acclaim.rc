@@ -1,6 +1,10 @@
 on init
    mkdir /bootdata  0777 root root
 
+service storage_setup /sbin/acclaim_storage.sh
+   seclabel u:r:recovery:s0
+   oneshot
+
 on fs
    # mount bootdata to restore BCB and counter
    mount vfat /dev/block/platform/omap/omap_hsmmc.1/by-name/bootdata /bootdata
