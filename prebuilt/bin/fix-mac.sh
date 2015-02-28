@@ -10,3 +10,5 @@ if [ ! -f "$NVS_BIN" ]; then
     calibrator set nvs_mac $NVS_BIN $MAC
     mount -o remount,ro /system
 fi
+
+insmod /system/lib/modules/wl12xx_sdio.ko
