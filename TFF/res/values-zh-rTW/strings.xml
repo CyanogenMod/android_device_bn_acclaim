@@ -21,5 +21,5 @@
   <string name="detecting">正在偵測\u2026</string>
   <string name="you_can_flash">您可以刷入：</string>
   <string name="i_understand">我清楚此操作可能帶來的結果</string>
-  <string name="help">鬆開手指即可刷入，移開即可放棄。</string>
+  <string name="help">鬆開手指即可刷入，移開即可取消。</string>
 </resources>
