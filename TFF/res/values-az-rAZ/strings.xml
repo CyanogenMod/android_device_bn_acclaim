@@ -16,8 +16,8 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Sensorlu ekrana mikroproqram yükləmə</string>
-  <string name="current_firmware">Hazırki mikroproqramlar: </string>
+  <string name="app_name">Sensorlu ekran cihaz proqram təminatı yükləyici</string>
+  <string name="current_firmware">Hazırki cihaz proqram təminatı: </string>
   <string name="detecting">Aşkarlanır\u2026</string>
   <string name="you_can_flash">Yükləyə bilərsiniz: </string>
   <string name="i_understand">Bu hərəkətin nəticələrini tamamilə başa düşürəm</string>
