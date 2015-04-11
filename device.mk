@@ -86,16 +86,22 @@ PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	com.ti.omap_enhancement=true \
-	hwui.render_dirty_regions=false \
+	config.disable_atlas=true \
+	dalvik.vm.jit.codecachesize=0 \
+	debug.hwui.render_dirty_regions=false \
 	omap.audio.mic.main=AMic0 \
 	omap.audio.mic.sub=AMic1 \
 	omap.audio.power=PingPong \
 	omap.enhancement=true \
+	persist.sys.force_highendgfx=true \
 	ro.bq.gpu_to_cpu_unsupported=1 \
 	ro.carrier=wifi-only \
+	ro.config.low_ram=true \
+	ro.config.max_starting_bg=8 \
 	ro.emulated_storage=true \
 	ro.opengles.version=131072 \
 	ro.sf.lcd_density=160 \
+	ro.sys.fw.bg_apps_limit=16 \
 	wifi.interface=wlan0 \
 	wifi.supplicant_scan_interval=120
 
@@ -145,7 +151,7 @@ $(call inherit-product-if-exists, hardware/ti/omap4/omap4.mk)
 $(call inherit-product, vendor/bn/acclaim/acclaim-vendor.mk)
 
 # mem
-$(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/tablet-dalvik-heap.mk)
 
 # wifi
 $(call inherit-product, hardware/ti/wlan/mac80211/wl127x-wlan-products.mk)
