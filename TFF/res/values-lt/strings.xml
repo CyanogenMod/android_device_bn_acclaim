@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Jutiklinio ekrano programinės įrangos diegimas</string>
+  <string name="app_name">Jutiklinio ekrano programinės įrangos įrašymas</string>
   <string name="current_firmware">Dabartinė programinė įranga: </string>
   <string name="detecting">Aptinkama\u2026</string>
   <string name="you_can_flash">Jūs galite įrašyti: </string>
