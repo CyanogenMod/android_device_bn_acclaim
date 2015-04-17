@@ -16,10 +16,9 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Firmware eguneratzailea</string>
   <string name="current_firmware">Uneko firmwarea: </string>
   <string name="detecting">Antzematen\u2026</string>
-  <string name="you_can_flash">Instalatu ditzazkezu: </string>
+  <string name="you_can_flash">Instalatu ditzakezu:  </string>
   <string name="i_understand">Ekintza honen ondorioak guztiz ulertzen ditut</string>
   <string name="help">Instalatzeko atzamarra altxatu. Kanpora mugitu baztertzeko.</string>
 </resources>

@@ -16,10 +16,9 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">צורב תוכנת מסך מגע</string>
-  <string name="current_firmware">גרסה נוכחית: </string>
-  <string name="detecting">מאתר\u2026</string>
-  <string name="you_can_flash">אתה יכול לצרוב: </string>
-  <string name="i_understand">אני מבין לחלוטין את ההשלכות של פעולה זו</string>
-  <string name="help">שחרר אצבע כדי לצרוב. הסט הלאה כדי לבטל.</string>
+  <string name="app_name">Trình nạp firmware màn hình cảm ứng</string>
+  <string name="current_firmware">Firmware hiện tại:</string>
+  <string name="detecting">Đang xoá\u2026</string>
+  <string name="you_can_flash">Bạn có thể flash: </string>
+  <string name="i_understand">Tôi hoàn toàn hiểu những hậu quả của hành động này</string>
 </resources>
