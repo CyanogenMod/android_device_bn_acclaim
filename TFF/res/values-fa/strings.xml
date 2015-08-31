@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">فلشر سفت‌افزار صفحه‌نمایش</string>
+  <string name="app_name">فلشر سفت‌افزار صفحه لمسی</string>
   <string name="current_firmware">سفت‌افزار فعلی: </string>
   <string name="detecting">درحال شناسایی\u2026</string>
   <string name="you_can_flash">می‌توانید فلش بزنید: </string>
