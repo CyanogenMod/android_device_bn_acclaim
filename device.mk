@@ -101,6 +101,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072 \
 	ro.sf.lcd_density=160 \
 	ro.sys.fw.bg_apps_limit=16 \
+	sys.io.scheduler=bfq \
 	wifi.interface=wlan0 \
 	wifi.supplicant_scan_interval=120
 
