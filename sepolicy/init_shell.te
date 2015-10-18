@@ -1,2 +1,2 @@
-allow init_shell vfat:dir search;
-allow init_shell vfat:file { open write };
+#allow init_shell vfat:dir search;
+#allow init_shell vfat:file { open write };
