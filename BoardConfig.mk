@@ -54,7 +54,7 @@ WPA_SUPPLICANT_VERSION := VER_0_8_X
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 
 # Graphics
-BOARD_EGL_CFG := $(DEVICE_FOLDER)/prebuilt/etc/egl.cfg
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB = $(DEVICE_FOLDER)/root/fstab.acclaim
@@ -98,23 +98,6 @@ TARGET_KERNEL_MODULES += SGX_MODULES
 BOARD_SEPOLICY_DIRS += \
 	$(DEVICE_FOLDER)/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-	dhcp.te \
-	file.te \
-	file_contexts \
-	init.te \
-	init_shell.te \
-	logbatterydata.te \
-	netd.te \
-	pvrsrvinit.te \
-	setup_fs.te \
-	shell.te \
-	smc_pa.te \
-	sysinit.te \
-	ueventd.te \
-	untrusted_app.te \
-	wpa_supplicant.te
-
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
 BOARD_USES_GENERIC_AUDIO := false
@@ -136,6 +119,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_UMS_LUNFILE := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file"
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
 
 # TWRP
 DEVICE_RESOLUTION := 1024x600
