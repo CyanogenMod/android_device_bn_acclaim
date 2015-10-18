@@ -1,36 +1,16 @@
 import init.acclaim.usb.rc
 
 on init
-    # See storage config details at http://source.android.com/devices/tech/storage/index.html
-    mkdir /mnt/shell/emulated 0700 shell shell
-    mkdir /storage/emulated 0555 root root
-
-    export EXTERNAL_STORAGE /storage/emulated/legacy
-    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /storage/emulated
-
-    # Support legacy paths
-    symlink /storage/emulated/legacy /sdcard
-    symlink /storage/emulated/legacy /mnt/sdcard
-    symlink /storage/emulated/legacy /storage/sdcard0
-    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
-
-    # Enable secondary storage
-    export SECONDARY_STORAGE /storage/sdcard1
-
-    # make the pathes for the external media mounts
-    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
-    mkdir /storage/sdcard1 0700 root root
-
     mkdir /rom 0777 root root
     mkdir /bootdata 0777 root root
+
+    # Support legacy paths
+    symlink /sdcard /mnt/sdcard
+    symlink /sdcard /storage/sdcard0
 
     # power management
     # Enable off mode by default
     write /sys/kernel/debug/pm_debug/enable_off_mode 1
-
-    # setup global environment
-    export PHONE_STORAGE /storage/sdcard1
 
 on fs
     # mount partitions
@@ -74,10 +54,6 @@ on post-fs
     insmod /system/lib/modules/wl12xx.ko
 
 on post-fs-data
-    # we will remap this as /mnt/sdcard with the sdcard fuse tool
-    mkdir /data/media 0770 media_rw media_rw
-    chown media_rw media_rw /data/media
-
     # wireless
     mkdir /data/misc/wifi 0770 wifi wifi
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
@@ -213,15 +189,6 @@ service hostapd_bin /system/bin/hostapd -d /data/misc/wifi/hostapd.conf
     class main
     disabled
     oneshot
-
-# virtual sdcard daemon running as media_rw (1023)
-service sdcard /system/bin/sdcard \
-	-u 1023 -g 1023 -l /data/media /mnt/shell/emulated
-    class late_start
-
-service fuse_sdcard1 /system/bin/sdcard \
-	-u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
-    class late_start
 
 # Update the battery data heuristics every hour
 service logbatterydata /system/bin/log_battery_data.sh

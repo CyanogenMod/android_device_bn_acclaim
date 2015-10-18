@@ -6,7 +6,7 @@
 /system/bin/pvrsrvinit u:object_r:pvrsrvinit_exec:s0
 
 # toolbox
-/system/bin/toolbox u:object_r:toolbox_exec:s0
+#/system/bin/toolbox u:object_r:toolbox_exec:s0
 
 # fix mac and wifi
 /system/bin/fix-mac.sh u:object_r:fixmac_exec:s0
