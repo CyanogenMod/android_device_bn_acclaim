@@ -17,6 +17,7 @@ $(INSTALLED_BOOTIMAGE_TARGET).sdcard :  $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES)
 
 $(INSTALLED_BOOTIMAGE_TARGET): \
 		$(MKBOOTIMG) $(INSTALLED_BOOTIMAGE_TARGET).sdcard $(ACCLAIM_BOOTLOADER)
+	$(call build-recoveryimage-target, $@)
 	$(call pretty,"Adding nook specific u-boot for boot.img")
 	$(call make_zeros,$(ACCLAIM_BOOTLOADER),$(BOOT_TMP_ZEROS))
 	cp $(ACCLAIM_BOOTLOADER) $@
