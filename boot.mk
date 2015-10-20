@@ -30,9 +30,8 @@ $(INSTALLED_BOOTIMAGE_TARGET): \
 # $(INSTALLED_RECOVERYIMAGE_TARGET) renamed to .sdcard
 $(INSTALLED_RECOVERYIMAGE_TARGET).sdcard: \
 		$(MKBOOTIMG) $(recovery_ramdisk) $(recovery_kernel)
-	@echo ----- Making recovery image ------
+	$(call build-recoveryimage-target, $@)
 	$(MKBOOTIMG) $(INTERNAL_RECOVERYIMAGE_ARGS) --output $@
-	@echo ----- Made recovery image -------- $@
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): \
 		$(INSTALLED_RECOVERYIMAGE_TARGET).sdcard \
