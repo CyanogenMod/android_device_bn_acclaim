@@ -14,25 +14,33 @@
 
 DEVICE_FOLDER := device/bn/acclaim
 
+# omap board
 TARGET_BOARD_OMAP_CPU := 4430
-TARGET_BOARD_PLATFORM_VARIANT := omap4-next
-
 # inherit from omap4
 include hardware/ti/omap4/BoardConfigCommon.mk
 
-# camera
+# no camera
 USE_CAMERA_STUB := true
 
-# bluetooth
+# no bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_FOLDER)/bluetooth
 BOARD_HAVE_BLUETOOTH := false
 
-# kernel/boot
-BOARD_KERNEL_BASE := 0x80080000
-BOARD_KERNEL_PAGESIZE := 4096
-TARGET_BOOTLOADER_BOARD_NAME := acclaim
-TARGET_NO_BOOTLOADER := true
-TARGET_NO_RADIOIMAGE := true
+# connectivity - wi-fi
+BOARD_WLAN_DEVICE := wl12xx_mac80211
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
+COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
+USES_TI_MAC80211 := true
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+
+# graphics
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
+# set if the target supports FBIO_WAITFORVSYNC
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+
+# audio
+BOARD_USES_GENERIC_AUDIO := false
 
 # filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
@@ -41,31 +49,23 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15728640
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 641728512
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12949876736
 BOARD_CACHEIMAGE_PARTITION_SIZE := 446693376
+TARGET_USERIMAGES_USE_EXT4 := true
+ifeq ($(HOST_OS),linux)
+TARGET_USERIMAGES_USE_F2FS := true
+endif
 
-# Connectivity - Wi-Fi
-BOARD_WLAN_DEVICE := wl12xx_mac80211
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_wl12xx
-COMMON_GLOBAL_CFLAGS += -DUSES_TI_MAC80211
-USES_TI_MAC80211 := true
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-
-# Vold
+# vold
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+BOARD_VOLD_MAX_PARTITIONS := 32
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun%d/file"
 
-# Graphics
-BOARD_EGL_WORKAROUND_BUG_10194508 := true
-
-# Recovery
-TARGET_RECOVERY_FSTAB = $(DEVICE_FOLDER)/root/fstab.acclaim
-TARGET_RECOVERY_PRE_COMMAND := "echo 'recovery' > /bootdata/BCB; sync"
-
-# boot.img creation
-BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/boot.mk
+# kernel/boot
+BOARD_KERNEL_BASE := 0x80080000
+BOARD_KERNEL_PAGESIZE := 4096
+TARGET_BOOTLOADER_BOARD_NAME := acclaim
 TARGET_NO_BOOTLOADER := true
-TARGET_PROVIDES_RELEASETOOLS := true
+TARGET_NO_RADIOIMAGE := true
 
-# use boot.img also in releasetools
 TARGET_KERNEL_CONFIG := cyanogenmod_acclaim_defconfig
 TARGET_KERNEL_SOURCE := kernel/bn/acclaim
 
@@ -85,7 +85,7 @@ WLAN_MODULES:
 
 TARGET_KERNEL_MODULES := WLAN_MODULES
 
-# External SGX Module
+# external SGX module
 SGX_MODULES:
 	make clean -C $(HARDWARE_TI_OMAP4_BASE)/pvr-source/eurasiacon/build/linux2/omap4430_android
 	cp $(TARGET_KERNEL_SOURCE)/drivers/video/omap2/omapfb/omapfb.h $(KERNEL_OUT)/drivers/video/omap2/omapfb/omapfb.h
@@ -98,28 +98,19 @@ TARGET_KERNEL_MODULES += SGX_MODULES
 BOARD_SEPOLICY_DIRS += \
 	$(DEVICE_FOLDER)/sepolicy
 
-# This variable is set first, so it can be overridden
-# by BoardConfigVendor.mk
-BOARD_USES_GENERIC_AUDIO := false
+# boot.img
+BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_FOLDER)/boot.mk
+TARGET_NO_BOOTLOADER := true
+TARGET_PROVIDES_RELEASETOOLS := true
 
-# Filesystem
-TARGET_USERIMAGES_USE_EXT4 := true
-ifeq ($(HOST_OS),linux)
-TARGET_USERIMAGES_USE_F2FS := true
-endif
-
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-BOARD_VOLD_MAX_PARTITIONS := 32
-
-# set if the target supports FBIO_WAITFORVSYNC
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
-
-# Recovery
+# recovery.img
+BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_UMS_LUNFILE := "/sys/devices/virtual/android_usb/android0/f_mass_storage/lun/file"
+TARGET_RECOVERY_FSTAB = $(DEVICE_FOLDER)/root/fstab.acclaim
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
+TARGET_RECOVERY_PRE_COMMAND := "echo 'recovery' > /bootdata/BCB; sync"
 
 # TWRP
 DEVICE_RESOLUTION := 1024x600
@@ -132,3 +123,4 @@ TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
 TW_INTERNAL_STORAGE_PATH := "/emmc"
 TW_NO_REBOOT_BOOTLOADER := true
 TW_NO_REBOOT_RECOVERY := true
+
