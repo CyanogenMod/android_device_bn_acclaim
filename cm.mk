@@ -18,6 +18,7 @@ $(call inherit-product, device/bn/acclaim/full_acclaim.mk)
 $(call inherit-product-if-exists, vendor/cm/config/common_full_tablet_wifionly.mk)
 TARGET_SCREEN_WIDTH := 480
 TARGET_SCREEN_HEIGHT := 1024
+TARGET_BOOTANIMATION_HALF_RES := true
 
 DEVICE_PACKAGE_OVERLAYS += device/bn/acclaim/overlay/cm
 
