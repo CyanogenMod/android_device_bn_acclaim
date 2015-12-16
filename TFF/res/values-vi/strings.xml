@@ -16,10 +16,5 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Trình nạp firmware cảm ứng</string>
-  <string name="current_firmware">Firmware hiện tại: </string>
-  <string name="detecting">Đang xác định\u2026</string>
-  <string name="you_can_flash">Bạn có thể nạp: </string>
-  <string name="i_understand">Tôi hoàn toàn hiểu những hậu quả của hành động này</string>
   <string name="help">Thả ngón tay để nạp. Di chuyển qua để loại bỏ.</string>
 </resources>
