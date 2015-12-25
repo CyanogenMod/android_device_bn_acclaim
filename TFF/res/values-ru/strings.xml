@@ -16,7 +16,7 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Обновление прошивки сенсорного экрана</string>
+  <string name="app_name">Обновление ПО сенсорного экрана</string>
   <string name="current_firmware">Текущая версия прошивки:</string>
   <string name="detecting">Определение\u2026</string>
   <string name="you_can_flash">Вы можете прошить:</string>

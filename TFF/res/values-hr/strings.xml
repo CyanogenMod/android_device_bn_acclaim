@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">ألمس الشاشة لي تثبت النظام</string>
-  <string name="current_firmware">البرامج الثابتة الحالية: </string>
-  <string name="detecting">الكشف عن\u2026</string>
-  <string name="you_can_flash">يمكنك التثبيت:</string>
-  <string name="i_understand">أنني أتفهم تماما النتائج المترتبة على هذا الإجراء</string>
-  <string name="help">أترك أصبعك لي تثبيت , حرّك نحو الجهة الثانية للالغاء.</string>
+  <string name="app_name">Instaliranje firmware-a dodirnog zaslona</string>
+  <string name="current_firmware">Trenutni firmware: </string>
+  <string name="detecting">Otkrivanje\u2026</string>
+  <string name="you_can_flash">Možete instalirati: </string>
+  <string name="i_understand">Potpuno razumijem posljedice ove radnje.</string>
+  <string name="help">Podignite prst za instaliranje. Pomaknite ga za odbacivanje.</string>
 </resources>
