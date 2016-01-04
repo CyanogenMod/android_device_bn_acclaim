@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Actualizador de pantalla táctil</string>
-  <string name="current_firmware">Firmware actual: </string>
-  <string name="detecting">Detectando\u2026</string>
-  <string name="you_can_flash">Puedes instalar: </string>
-  <string name="i_understand">Entiendo perfectamente las consecuencias de esta acción</string>
-  <string name="help">Levantar el dedo para instalar. Mover fuera para descartar.</string>
+  <string name="app_name">ตัวติดตั้งเฟิร์มแวร์จอสัมผัส</string>
+  <string name="current_firmware">เฟิร์มแวร์ปัจจุบัน:</string>
+  <string name="detecting">กำลังตรวจสอบ\u2026</string>
+  <string name="you_can_flash">คุณสามารถติดตั้ง :</string>
+  <string name="i_understand">ฉันเข้าใจผลกระทบจากการกระทำนี้อย่างชัดเจน</string>
+  <string name="help">ปล่อยนิ้วเพื่อติดตั้ง เลื่อนไปอีกด้านเพื่อยกเลิก</string>
 </resources>

@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Actualizador de pantalla táctil</string>
-  <string name="current_firmware">Firmware actual: </string>
-  <string name="detecting">Detectando\u2026</string>
-  <string name="you_can_flash">Puedes instalar: </string>
-  <string name="i_understand">Entiendo perfectamente las consecuencias de esta acción</string>
-  <string name="help">Levantar el dedo para instalar. Mover fuera para descartar.</string>
+  <string name="app_name">وامض البرنامج الثابت لشاشة اللمس</string>
+  <string name="current_firmware">البرامج الثابتة الحالية: </string>
+  <string name="detecting">الكشف عن\u2026</string>
+  <string name="you_can_flash">يمكنك التثبيت:</string>
+  <string name="i_understand">أنني أتفهم تماما النتائج المترتبة على هذا الإجراء</string>
+  <string name="help">حرر أصبعك للتثبيت, حرّك نحو الجهة الثانية للتجاهل.</string>
 </resources>
