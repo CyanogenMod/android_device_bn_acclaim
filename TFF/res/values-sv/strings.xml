@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <resources>
+  <string name="app_name">Installatationsprogram för pekskärmsmjukvara</string>
   <string name="current_firmware">Nuvarande mjukvara: </string>
   <string name="detecting">Upptäcker\u2026</string>
   <string name="you_can_flash">Du kan installera: </string>
