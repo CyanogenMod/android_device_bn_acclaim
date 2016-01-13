@@ -1,10 +1,5 @@
-# fix mac
-type fixmac_exec, exec_type, file_type;
-
 # clearbootdata
 type clearbootdata_exec, exec_type, file_type;
-
-allow init fixmac_exec:file {execute getattr read open};
 
 allow toolbox self:capability sys_module;
 allow toolbox kernel:system module_request;

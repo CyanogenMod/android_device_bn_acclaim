@@ -114,8 +114,7 @@ DEVICE_PACKAGE_OVERLAYS := $(DEVICE_FOLDER)/overlay/aosp
 # filesystem management tools
 PRODUCT_PACKAGES += \
 	fsck.f2fs \
-	mkfs.f2fs \
-	setup_fs
+	mkfs.f2fs
 
 # audio support
 PRODUCT_PACKAGES += \

@@ -21,6 +21,3 @@
 
 # smc
 /system/bin/smc_pa_ctrl u:object_r:smc_pa_exec:s0
-
-# setup_fs
-/system/bin/setup_fs u:object_r:setup_fs_exec:s0

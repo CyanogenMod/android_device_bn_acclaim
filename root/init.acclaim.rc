@@ -110,31 +110,20 @@ service pvrsrvinit /system/bin/pvrsrvinit
 
 service fixmac /system/bin/fix-mac.sh
     class core
-    # run within init domain as we need to remount /system
-    # and that's not allowed in other domains (?)
-    seclabel u:r:init:s0
+    seclabel u:r:fixmac:s0
     user root
     group root
     oneshot
     disabled
-
+    
 service clearbootdata /sbin/clearbootdata.sh
     class core
-    seclabel u:r:init:s0
+    seclabel u:r:clearbootdata:s0
     user root
     group root
     disabled
     oneshot
-
-# create filesystems if necessary
-service setup_fs /system/bin/setup_fs \
-    /dev/block/platform/omap/omap_hsmmc.1/by-name/cache \
-    /dev/block/platform/omap/omap_hsmmc.1/by-name/userdata
-    class core
-    user root
-    group root
-    oneshot
-
+    
 # MSHIELD SMC Daemon - component required to store persistent data coming
 service tf_daemon /system/bin/tf_daemon \
     -d -c /vendor/etc/smc_normal_world_android_cfg.ini
