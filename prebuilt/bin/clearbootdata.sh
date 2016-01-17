@@ -1,5 +1,3 @@
-#!/system/bin/sh
-
 # Zero out the boot counter
 dd if=/dev/zero of=/bootdata/BootCnt bs=1 count=4
 

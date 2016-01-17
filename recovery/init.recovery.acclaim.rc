@@ -7,6 +7,6 @@ on fs
 
 service clearbootdata /sbin/sh /sbin/clearbootdata.sh
     class default
-    seclabel u:r:init:s0
+    seclabel u:r:clearbootdata:s0
     user root
     oneshot
