@@ -1,4 +1,5 @@
 import init.acclaim.usb.rc
+import init.omap4.rc
 
 on init
     mkdir /rom 0777 root root
@@ -16,9 +17,8 @@ on fs
     # mount partitions
     mount_all fstab.acclaim
 
-    # load SGX Modules
+    # load SGX module
     insmod /system/lib/modules/pvrsrvkm_sgx540_120.ko
-    start pvrsrvinit
 
     # set kxtf9 permissions
     chown system system /sys/bus/i2c/drivers/kxtf9/1-000f/delay
@@ -85,14 +85,6 @@ on boot
 
 on property:dev.bootcomplete=1
     start clearbootdata
-
-# Initialize the SGX driver
-service pvrsrvinit /system/bin/pvrsrvinit
-    class core
-    user root
-    group root
-    oneshot
-    disabled
 
 service fixmac /system/bin/fix-mac.sh
     class core
