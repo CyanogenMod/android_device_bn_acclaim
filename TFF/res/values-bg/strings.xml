@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Installatationsprogram för pekskärmsmjukvara</string>
-  <string name="current_firmware">Nuvarande mjukvara: </string>
-  <string name="detecting">Upptäcker\u2026</string>
-  <string name="you_can_flash">Du kan installera: </string>
-  <string name="i_understand">Jag är fullt medveten om konsekvenserna av den här åtgärden</string>
-  <string name="help">Lyft fingret för att installera. Flytta undan för att avbryta.</string>
+  <string name="app_name">Фърмуер флашер за сензорен екран</string>
+  <string name="current_firmware">Текущ фърмуер: </string>
+  <string name="detecting">Откриване\u2026</string>
+  <string name="you_can_flash">Можете да флашнете: </string>
+  <string name="i_understand">Напълно разбирам последиците от това действие</string>
+  <string name="help">Отпуснете пръста си, за да флашнете. Преместете пръста, за да отмените действието.</string>
 </resources>

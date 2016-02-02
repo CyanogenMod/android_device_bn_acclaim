@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Installatationsprogram för pekskärmsmjukvara</string>
-  <string name="current_firmware">Nuvarande mjukvara: </string>
-  <string name="detecting">Upptäcker\u2026</string>
-  <string name="you_can_flash">Du kan installera: </string>
-  <string name="i_understand">Jag är fullt medveten om konsekvenserna av den här åtgärden</string>
-  <string name="help">Lyft fingret för att installera. Flytta undan för att avbryta.</string>
+  <string name="app_name">Абнаўленне прашыўкі сэнсорнага экрана</string>
+  <string name="current_firmware">Бягучая версія прашыўкі: </string>
+  <string name="detecting">Вызначэнне\u2026</string>
+  <string name="you_can_flash">Вы можаце прашыць: </string>
+  <string name="i_understand">Я цалкам разумею магчымыя наступствы гэтай аперацыі</string>
+  <string name="help">Адпусціце для пачатку прашыўкі. Ссуньце для скасавання.</string>
 </resources>
