@@ -19,6 +19,8 @@ TARGET_BOARD_OMAP_CPU := 4430
 # inherit from omap4
 include hardware/ti/omap4/BoardConfigCommon.mk
 
+TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_FOLDER)/include
+
 # no camera
 USE_CAMERA_STUB := true
 
