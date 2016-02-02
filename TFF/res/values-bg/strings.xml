@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Flasher de la firmware de la pantalla tàctil</string>
-  <string name="current_firmware">Firmware actual: </string>
-  <string name="detecting">Sestà detectant\u2026</string>
-  <string name="you_can_flash">Pots fer flash: </string>
-  <string name="i_understand">Comprenc perfectament les conseqüències d\'aquesta acció</string>
-  <string name="help">Deixa anar el dit per fer flash. Mou per sobre per descartar.</string>
+  <string name="app_name">Фърмуер флашер за сензорен екран</string>
+  <string name="current_firmware">Текущ фърмуер: </string>
+  <string name="detecting">Откриване\u2026</string>
+  <string name="you_can_flash">Можете да флашнете: </string>
+  <string name="i_understand">Напълно разбирам последиците от това действие</string>
+  <string name="help">Отпуснете пръста си, за да флашнете. Преместете пръста, за да отмените действието.</string>
 </resources>
