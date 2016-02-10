@@ -21,5 +21,5 @@
   <string name="detecting">Otkrivanje\u2026</string>
   <string name="you_can_flash">Možete instalirati: </string>
   <string name="i_understand">Potpuno razumijem posljedice ove radnje.</string>
-  <string name="help">Podignite prst za instaliranje. Pomaknite ga za odbacivanje.</string>
+  <string name="help">Pusti prst za instaliranje. Pomakni preko za odbacivanje.</string>
 </resources>
