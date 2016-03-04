@@ -16,10 +16,6 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Обновление ПО сенсорного экрана</string>
-  <string name="current_firmware">Текущая версия прошивки:</string>
-  <string name="detecting">Определение\u2026</string>
-  <string name="you_can_flash">Вы можете прошить:</string>
-  <string name="i_understand">Я понимаю возможные последствия этой операции</string>
-  <string name="help">Отпустите палец для начала прошивки. Сдвиньте для отмены.</string>
+  <string name="app_name">Actualizador de firmware de pantalla táctil</string>
+  <string name="help">Suelta el dedo para instalar. Desplaza hacia fuera para descartar.</string>
 </resources>
