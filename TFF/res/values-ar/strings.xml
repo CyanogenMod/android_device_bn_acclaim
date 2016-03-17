@@ -17,9 +17,9 @@
 -->
 <resources>
   <string name="app_name">وامض البرنامج الثابت لشاشة اللمس</string>
-  <string name="current_firmware">البرامج الثابتة الحالية: </string>
-  <string name="detecting">الكشف عن\u2026</string>
-  <string name="you_can_flash">يمكنك التثبيت:</string>
-  <string name="i_understand">أنني أتفهم تماما النتائج المترتبة على هذا الإجراء</string>
-  <string name="help">حرر أصبعك للتثبيت, حرّك نحو الجهة الثانية للتجاهل.</string>
+  <string name="current_firmware">البرنامج الثابت الحالي:</string>
+  <string name="detecting">اكتشاف\u2026</string>
+  <string name="you_can_flash">يمكنك تشغيل الفلاش:</string>
+  <string name="i_understand">أنا أتفهم تماماً النتائج المترتبة على هذا الإجراء</string>
+  <string name="help">حرر إصبعك لتشغيل الفلاش. حرك بشكل فوقي للتجاهل.</string>
 </resources>

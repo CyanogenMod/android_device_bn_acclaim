@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Actualizador de firmware de pantalla táctil</string>
-  <string name="current_firmware">Firmware actual:</string>
-  <string name="detecting">Detectando\u2026</string>
-  <string name="you_can_flash">Puedes instalar: </string>
-  <string name="i_understand">Entiendo perfectamente las consecuencias de esta acción</string>
-  <string name="help">Suelta el dedo para instalar. Desplaza hacia fuera para descartar.</string>
+  <string name="app_name">टचस्क्रीन फर्मवेअर फ्लॅशर</string>
+  <string name="current_firmware">चालू फर्मवेअर: </string>
+  <string name="detecting">शोधत आहे\u2026</string>
+  <string name="you_can_flash">तुम्ही फ्लॅश करू शकता: </string>
+  <string name="i_understand">या क्रियाचे परिणाम मला संपूर्णपणे समजत आहेत</string>
+  <string name="help">फ्लॅश करण्यासाठी बोट सोडा. विल्हेवाट लावण्यासाठी हलवा.</string>
 </resources>

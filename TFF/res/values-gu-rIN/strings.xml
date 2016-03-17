@@ -16,9 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">ટચસ્ક્રીન ફર્મવેર ફ્લેશર</string>
+  <string name="app_name">ટચસ્ક્રીન ફર્મવેર ફ્લૅશર</string>
   <string name="current_firmware">વર્તમાન ફર્મવેર: </string>
-  <string name="detecting">ડિટેક્ટિંગ\u2026</string>
-  <string name="you_can_flash">તમે ફ્લેશ કરી શકો છો: </string>
+  <string name="detecting">શોધ થાય છે\u2026</string>
+  <string name="you_can_flash">તમે ફ્લૅશ કરી શકો છો: </string>
   <string name="i_understand">હું આ ક્રિયાના પરિણામો ને સંપૂર્ણપણે સમજું છું</string>
+  <string name="help">ફ્લૅશ કરવા આંગળી છોડો. નિકાલ કરવા આગળ વધો.</string>
 </resources>
