@@ -16,10 +16,10 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">وامض البرنامج الثابت لشاشة اللمس</string>
-  <string name="current_firmware">البرنامج الثابت الحالي:</string>
-  <string name="detecting">اكتشاف\u2026</string>
-  <string name="you_can_flash">يمكنك تشغيل الفلاش:</string>
-  <string name="i_understand">أنا أتفهم تماماً النتائج المترتبة على هذا الإجراء</string>
-  <string name="help">حرر إصبعك لتشغيل الفلاش. حرك بشكل فوقي للتجاهل.</string>
+  <string name="app_name">Actualizador de firmware de pantalla táctil</string>
+  <string name="current_firmware">Firmware actual:</string>
+  <string name="detecting">Detectando\u2026</string>
+  <string name="you_can_flash">Puedes instalar: </string>
+  <string name="i_understand">Entiendo perfectamente las consecuencias de esta acción</string>
+  <string name="help">Suelta el dedo para instalar. Desplaza hacia fuera para descartar.</string>
 </resources>
