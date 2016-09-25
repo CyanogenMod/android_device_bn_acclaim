@@ -16,7 +16,6 @@
      limitations under the License.
 -->
 <resources>
-  <string name="app_name">Instalilo de mikroprogramo por tuŝekrano</string>
   <string name="current_firmware">Aktuala mikroprogramaro: </string>
   <string name="detecting">Detektado\u2026</string>
   <string name="you_can_flash">Vi povas fulmpromocii: </string>
