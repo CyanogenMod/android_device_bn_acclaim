@@ -34,7 +34,6 @@ etc/firmware/ducati-m3.bin
 
 # SGX Bins
 vendor/lib/hw/gralloc.omap4430.so
-vendor/lib/egl/libEGL_POWERVR_SGX540_120.so
 vendor/lib/egl/libGLESv1_CM_POWERVR_SGX540_120.so
 vendor/lib/egl/libGLESv2_POWERVR_SGX540_120.so
 vendor/lib/libglslcompiler_SGX540_120.so
