@@ -11,6 +11,7 @@
 
 # logbattery
 /system/bin/log_battery_data.sh u:object_r:logbatterydata_exec:s0
+/sys/devices/platform/omap/omap_i2c.1/i2c-1/1-0036/histdata u:object_r:sysfs_logbat:s0
 
 # clearbootdata
 /sbin/clearbootdata.sh u:object_r:clearbootdata_exec:s0
