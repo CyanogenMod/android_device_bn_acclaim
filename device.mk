@@ -59,6 +59,7 @@ PRODUCT_COPY_FILES += \
 # misc scripts
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/bin/clearbootdata.sh:root/sbin/clearbootdata.sh \
+	$(DEVICE_FOLDER)/prebuilt/bin/repartition.sh:root/sbin/repartition.sh \
 	$(DEVICE_FOLDER)/prebuilt/bin/fix-mac.sh:/system/bin/fix-mac.sh \
 	$(DEVICE_FOLDER)/prebuilt/bin/log_battery_data.sh:/system/bin/log_battery_data.sh
 
